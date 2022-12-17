@@ -74,7 +74,7 @@ namespace —ourseWork— {
 			this->GameStartButton->TabIndex = 15;
 			this->GameStartButton->Text = L"Õ‡˜‡Ú¸ Ë„Û";
 			this->GameStartButton->UseVisualStyleBackColor = false;
-			this->GameStartButton->Visible = false;
+			this->GameStartButton->Click += gcnew System::EventHandler(this, &Main_Menu::GameStartButton_Click);
 			// 
 			// ExitButton
 			// 
@@ -90,7 +90,7 @@ namespace —ourseWork— {
 			this->ExitButton->TabIndex = 16;
 			this->ExitButton->Text = L"¬˚ıÓ‰";
 			this->ExitButton->UseVisualStyleBackColor = false;
-			this->ExitButton->Visible = false;
+			this->ExitButton->Click += gcnew System::EventHandler(this, &Main_Menu::ExitButton_Click);
 			// 
 			// AboutGameButton
 			// 
@@ -106,7 +106,7 @@ namespace —ourseWork— {
 			this->AboutGameButton->TabIndex = 17;
 			this->AboutGameButton->Text = L"Œ· Ë„Â";
 			this->AboutGameButton->UseVisualStyleBackColor = false;
-			this->AboutGameButton->Visible = false;
+			this->AboutGameButton->Click += gcnew System::EventHandler(this, &Main_Menu::AboutGameButton_Click);
 			// 
 			// SaveDeleteButton
 			// 
@@ -122,7 +122,7 @@ namespace —ourseWork— {
 			this->SaveDeleteButton->TabIndex = 18;
 			this->SaveDeleteButton->Text = L"”‰‡ÎËÚ¸ ÒÓı‡ÌÂÌËÂ";
 			this->SaveDeleteButton->UseVisualStyleBackColor = false;
-			this->SaveDeleteButton->Visible = false;
+			this->SaveDeleteButton->Click += gcnew System::EventHandler(this, &Main_Menu::SaveDeleteButton_Click);
 			// 
 			// Main_Menu
 			// 
@@ -145,5 +145,13 @@ namespace —ourseWork— {
 
 		}
 #pragma endregion
-	};
+	private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void AboutGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void SaveDeleteButton_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void GameStartButton_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }
