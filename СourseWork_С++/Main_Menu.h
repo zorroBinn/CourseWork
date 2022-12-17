@@ -34,6 +34,11 @@ namespace —ourseWork— {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ GameStartButton;
+	protected:
+	private: System::Windows::Forms::Button^ ExitButton;
+	private: System::Windows::Forms::Button^ AboutGameButton;
+	private: System::Windows::Forms::Button^ SaveDeleteButton;
 
 	private:
 		/// <summary>
@@ -48,11 +53,96 @@ namespace —ourseWork— {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Main_Menu";
-			this->Padding = System::Windows::Forms::Padding(0);
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Main_Menu::typeid));
+			this->GameStartButton = (gcnew System::Windows::Forms::Button());
+			this->ExitButton = (gcnew System::Windows::Forms::Button());
+			this->AboutGameButton = (gcnew System::Windows::Forms::Button());
+			this->SaveDeleteButton = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// GameStartButton
+			// 
+			this->GameStartButton->BackColor = System::Drawing::Color::Goldenrod;
+			this->GameStartButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->GameStartButton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->GameStartButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->GameStartButton->Location = System::Drawing::Point(276, 134);
+			this->GameStartButton->Name = L"GameStartButton";
+			this->GameStartButton->Size = System::Drawing::Size(171, 53);
+			this->GameStartButton->TabIndex = 15;
+			this->GameStartButton->Text = L"Õ‡˜‡Ú¸ Ë„Û";
+			this->GameStartButton->UseVisualStyleBackColor = false;
+			this->GameStartButton->Visible = false;
+			// 
+			// ExitButton
+			// 
+			this->ExitButton->BackColor = System::Drawing::Color::Goldenrod;
+			this->ExitButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->ExitButton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->ExitButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->ExitButton->Location = System::Drawing::Point(276, 375);
+			this->ExitButton->Name = L"ExitButton";
+			this->ExitButton->Size = System::Drawing::Size(171, 53);
+			this->ExitButton->TabIndex = 16;
+			this->ExitButton->Text = L"¬˚ıÓ‰";
+			this->ExitButton->UseVisualStyleBackColor = false;
+			this->ExitButton->Visible = false;
+			// 
+			// AboutGameButton
+			// 
+			this->AboutGameButton->BackColor = System::Drawing::Color::Goldenrod;
+			this->AboutGameButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->AboutGameButton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->AboutGameButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->AboutGameButton->Location = System::Drawing::Point(276, 298);
+			this->AboutGameButton->Name = L"AboutGameButton";
+			this->AboutGameButton->Size = System::Drawing::Size(171, 53);
+			this->AboutGameButton->TabIndex = 17;
+			this->AboutGameButton->Text = L"Œ· Ë„Â";
+			this->AboutGameButton->UseVisualStyleBackColor = false;
+			this->AboutGameButton->Visible = false;
+			// 
+			// SaveDeleteButton
+			// 
+			this->SaveDeleteButton->BackColor = System::Drawing::Color::Goldenrod;
+			this->SaveDeleteButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->SaveDeleteButton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->SaveDeleteButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->SaveDeleteButton->Location = System::Drawing::Point(276, 219);
+			this->SaveDeleteButton->Name = L"SaveDeleteButton";
+			this->SaveDeleteButton->Size = System::Drawing::Size(171, 53);
+			this->SaveDeleteButton->TabIndex = 18;
+			this->SaveDeleteButton->Text = L"”‰‡ÎËÚ¸ ÒÓı‡ÌÂÌËÂ";
+			this->SaveDeleteButton->UseVisualStyleBackColor = false;
+			this->SaveDeleteButton->Visible = false;
+			// 
+			// Main_Menu
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(755, 525);
+			this->Controls->Add(this->SaveDeleteButton);
+			this->Controls->Add(this->AboutGameButton);
+			this->Controls->Add(this->ExitButton);
+			this->Controls->Add(this->GameStartButton);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(771, 564);
+			this->MinimumSize = System::Drawing::Size(771, 564);
+			this->Name = L"Main_Menu";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"√Î‡‚ÌÓÂ ÏÂÌ˛";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
