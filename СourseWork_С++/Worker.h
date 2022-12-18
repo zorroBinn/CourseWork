@@ -5,6 +5,7 @@ using System::Int32;
 
 ref class Worker : public Human 
 {
+private:
 	String^ Namework;
 	Int32 Payment;
 

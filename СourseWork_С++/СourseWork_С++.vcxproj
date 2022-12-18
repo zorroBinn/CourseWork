@@ -124,6 +124,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Main_Menu.cpp" />
     <ClCompile Include="MedicalCard.cpp" />
+    <ClCompile Include="NewCharacter.cpp" />
     <ClCompile Include="Realty.cpp" />
     <ClCompile Include="Worker.cpp" />
   </ItemGroup>
@@ -134,12 +135,18 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MedicalCard.h" />
+    <ClInclude Include="NewCharacter.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Realty.h" />
     <ClInclude Include="Worker.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main_Menu.resx">
       <DependentUpon>Main_Menu.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCharacter.resx">
+      <DependentUpon>NewCharacter.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

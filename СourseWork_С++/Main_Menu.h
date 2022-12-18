@@ -1,4 +1,5 @@
 #pragma once
+#include "NewCharacter.h"
 
 namespace —ourseWork— {
 
@@ -8,6 +9,7 @@ namespace —ourseWork— {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using IO::File;
 
 	/// <summary>
 	/// —‚Ó‰Í‡ ‰Îˇ Main_Menu
@@ -21,6 +23,9 @@ namespace —ourseWork— {
 			//
 			//TODO: ‰Ó·‡‚¸ÚÂ ÍÓ‰ ÍÓÌÒÚÛÍÚÓ‡
 			//
+			if (File::Exists("save.txt") == true) {
+				this->GameStartButton->Text = "»„‡Ú¸";
+			}
 		}
 
 	protected:
@@ -141,17 +146,15 @@ namespace —ourseWork— {
 			this->Name = L"Main_Menu";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"√Î‡‚ÌÓÂ ÏÂÌ˛";
+			this->Resize += gcnew System::EventHandler(this, &Main_Menu::Main_Menu_Resize);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-private: System::Void AboutGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void SaveDeleteButton_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void GameStartButton_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void AboutGameButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void SaveDeleteButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void GameStartButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Main_Menu_Resize(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -4,6 +4,7 @@ using System::Int32;
 
 ref class Realty
 {
+private:
 	String^ Housing;
 	String^ Vehicle;
 
