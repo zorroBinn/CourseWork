@@ -1,5 +1,6 @@
 #pragma once
 #include "NewCharacter.h"
+#include "Game.h"
 
 namespace —ourseWork— {
 

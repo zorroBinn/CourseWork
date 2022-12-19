@@ -1,4 +1,5 @@
 #include "Main_Menu.h"
+#include "Game.h"
 
 System::Void ÑourseWorkÑ::Main_Menu::ExitButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
@@ -40,6 +41,13 @@ System::Void ÑourseWorkÑ::Main_Menu::GameStartButton_Click(System::Object^ sende
         this->WindowState = FormWindowState::Minimized;
         this->ShowInTaskbar = false;
         newcharacter->Show();
+    }
+    else {
+        Game^ game = gcnew Game();
+        game->Owner = this;
+        this->WindowState = FormWindowState::Minimized;
+        this->ShowInTaskbar = false;
+        game->Show();
     }
 }
 
