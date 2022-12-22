@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Clothes.cpp" />
+    <ClCompile Include="FoodEating.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Clothes.h" />
+    <ClInclude Include="FoodEating.h" />
     <ClInclude Include="Game.h">
       <FileType>CppForm</FileType>
     </ClInclude>

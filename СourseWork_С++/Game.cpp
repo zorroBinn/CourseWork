@@ -377,3 +377,13 @@ System::Void ÑourseWorkÑ::Game::DataInitialization()
 		}
 	}
 }
+
+System::Void ÑourseWorkÑ::Game::boostersbutton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (this->groupBoxboosters->Visible == false) {
+		this->groupBoxboosters->Visible = true;
+	}
+	else {
+		this->groupBoxboosters->Visible = false;
+	}
+}
