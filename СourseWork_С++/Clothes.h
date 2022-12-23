@@ -5,6 +5,7 @@ using System::Int32;
 ref class Clothes
 {
 private:
+	bool AutoSewUp;
 	String^ Body;
 	String^ Pants;
 	String^ Shoes;
@@ -12,7 +13,6 @@ private:
 
 public:
 	Clothes();
-	Clothes(String^ Body, String^ Pants, String^ Shoes);
 	String^ GetBody();
 	void SetBody(String^ body);
 	String^ GetPants();
@@ -24,5 +24,7 @@ public:
 	void SewUpClothes();
 	void TearClothes();
 	void BuySuit();
+	bool GetAutoSewUp();
+	void SetAutoSewUp(bool argument);
 };
 

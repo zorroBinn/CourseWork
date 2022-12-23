@@ -29,17 +29,23 @@ System::Void СourseWorkС::NewCharacter::createbutton_Click(System::Object^ sende
 				f->WriteLine("Ж");
 			}
 			f->WriteLine(this->comboBoxage->Text);
-			f->WriteLine(1000);
+			f->WriteLine(1000); //balance
 			f->WriteLine(this->numericUpDownweight->Text);
 			f->WriteLine(this->numericUpDownheight->Text);
+			f->WriteLine(100); //healthstatus
+			f->WriteLine(0); //infinityhealth
 			f->WriteLine("Безработный");
-			f->WriteLine(1500);
+			f->WriteLine(1500); //payment
 			f->WriteLine("Майка");
 			f->WriteLine("Трусы");
-			f->WriteLine("Тапки");
-			f->WriteLine("Гараж");
+			f->WriteLine("Тапки"); 
+			f->WriteLine(100); //Статус одежды
+			f->WriteLine(0); //autosewup
+			f->WriteLine("Гараж"); //
 			f->WriteLine("Велик");
-			f->WriteLine(0);
+			f->WriteLine(0); //уровень
+			f->WriteLine(100); //satietystatus
+			f->WriteLine(0); //autoeating
 			f->Close();
 			MessageBox::Show("Персонаж создан!", "Готово!", MessageBoxButtons::OK, MessageBoxIcon::None);
 			this->Owner->WindowState = FormWindowState::Normal;

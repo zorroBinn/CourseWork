@@ -38,6 +38,19 @@ namespace —ourseWork— {
 	private: System::Windows::Forms::Button^ autosewupbutton;
 	private: System::Windows::Forms::Button^ boostersbutton;
 	private: System::Windows::Forms::ToolStripMenuItem^ Â‰‡toolStripMenuItem;
+	private: System::Windows::Forms::GroupBox^ groupBoxfood;
+	private: System::Windows::Forms::Label^ foodlabel;
+	private: System::Windows::Forms::Label^ labelsatiety;
+	private: System::Windows::Forms::Label^ satiety;
+	private: System::Windows::Forms::Label^ satietypercent;
+	private: System::Windows::Forms::Button^ threebutton;
+	private: System::Windows::Forms::Button^ twofoodbutton;
+	private: System::Windows::Forms::Button^ onefoodbutton;
+	private: System::Windows::Forms::Label^ infosatietylabel;
+	private: System::Windows::Forms::Label^ infosatietypercent;
+	private: System::Windows::Forms::Label^ infopercent1;
+	private: System::Windows::Forms::Label^ labeldollar;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ cloth;
 
 	public:
@@ -77,7 +90,7 @@ namespace —ourseWork— {
 	private: System::Windows::Forms::ToolStripMenuItem^ Ó‰ÂÊ‰‡ToolStripMenuItem;
 	private: System::Windows::Forms::GroupBox^ Infobox;
 	private: System::Windows::Forms::Label^ infohealth;
-	private: System::Windows::Forms::Label^ infobalance;
+
 	private: System::Windows::Forms::Label^ infoname;
 
 
@@ -187,22 +200,25 @@ namespace —ourseWork— {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle17 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle20 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle18 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle19 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->‡·ÓÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ÔÂÒÓÌ‡ÊToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Á‰ÓÓ‚¸ÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->Â‰‡toolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Ó‰ÂÊ‰‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Infobox = (gcnew System::Windows::Forms::GroupBox());
+			this->infosatietypercent = (gcnew System::Windows::Forms::Label());
+			this->infopercent1 = (gcnew System::Windows::Forms::Label());
+			this->infosatietylabel = (gcnew System::Windows::Forms::Label());
 			this->infomoneybalance = (gcnew System::Windows::Forms::Label());
 			this->infohealthpercent = (gcnew System::Windows::Forms::Label());
 			this->infopercent = (gcnew System::Windows::Forms::Label());
 			this->infohealth = (gcnew System::Windows::Forms::Label());
-			this->infobalance = (gcnew System::Windows::Forms::Label());
 			this->infoname = (gcnew System::Windows::Forms::Label());
 			this->picturebox = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBoxhuman = (gcnew System::Windows::Forms::GroupBox());
@@ -246,6 +262,14 @@ namespace —ourseWork— {
 			this->cloth = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->buttonsewup = (gcnew System::Windows::Forms::Button());
 			this->labelclothes = (gcnew System::Windows::Forms::Label());
+			this->groupBoxfood = (gcnew System::Windows::Forms::GroupBox());
+			this->threebutton = (gcnew System::Windows::Forms::Button());
+			this->twofoodbutton = (gcnew System::Windows::Forms::Button());
+			this->onefoodbutton = (gcnew System::Windows::Forms::Button());
+			this->satiety = (gcnew System::Windows::Forms::Label());
+			this->satietypercent = (gcnew System::Windows::Forms::Label());
+			this->labelsatiety = (gcnew System::Windows::Forms::Label());
+			this->foodlabel = (gcnew System::Windows::Forms::Label());
 			this->groupBoxrealty = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBoxrealtycar = (gcnew System::Windows::Forms::ComboBox());
 			this->checkBoxcar = (gcnew System::Windows::Forms::CheckBox());
@@ -266,7 +290,7 @@ namespace —ourseWork— {
 			this->autosewupcost = (gcnew System::Windows::Forms::Label());
 			this->autosewupbutton = (gcnew System::Windows::Forms::Button());
 			this->boostersbutton = (gcnew System::Windows::Forms::Button());
-			this->Â‰‡toolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->labeldollar = (gcnew System::Windows::Forms::Label());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturebox))->BeginInit();
@@ -275,6 +299,7 @@ namespace —ourseWork— {
 			this->groupBoxmd->SuspendLayout();
 			this->groupBoxclothes->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewclothes))->BeginInit();
+			this->groupBoxfood->SuspendLayout();
 			this->groupBoxrealty->SuspendLayout();
 			this->groupBoxboosters->SuspendLayout();
 			this->SuspendLayout();
@@ -350,6 +375,17 @@ namespace —ourseWork— {
 			this->Á‰ÓÓ‚¸ÂToolStripMenuItem->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageAboveText;
 			this->Á‰ÓÓ‚¸ÂToolStripMenuItem->Click += gcnew System::EventHandler(this, &Game::Á‰ÓÓ‚¸ÂToolStripMenuItem_Click);
 			// 
+			// Â‰‡toolStripMenuItem
+			// 
+			this->Â‰‡toolStripMenuItem->AutoSize = false;
+			this->Â‰‡toolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Â‰‡toolStripMenuItem.Image")));
+			this->Â‰‡toolStripMenuItem->Name = L"Â‰‡toolStripMenuItem";
+			this->Â‰‡toolStripMenuItem->Size = System::Drawing::Size(120, 76);
+			this->Â‰‡toolStripMenuItem->Text = L"≈‰‡";
+			this->Â‰‡toolStripMenuItem->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->Â‰‡toolStripMenuItem->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageAboveText;
+			this->Â‰‡toolStripMenuItem->Click += gcnew System::EventHandler(this, &Game::Â‰‡toolStripMenuItem_Click);
+			// 
 			// Ó‰ÂÊ‰‡ToolStripMenuItem
 			// 
 			this->Ó‰ÂÊ‰‡ToolStripMenuItem->AutoSize = false;
@@ -365,27 +401,63 @@ namespace —ourseWork— {
 			// Infobox
 			// 
 			this->Infobox->BackColor = System::Drawing::SystemColors::Info;
+			this->Infobox->Controls->Add(this->labeldollar);
+			this->Infobox->Controls->Add(this->infosatietypercent);
+			this->Infobox->Controls->Add(this->infopercent1);
+			this->Infobox->Controls->Add(this->infosatietylabel);
 			this->Infobox->Controls->Add(this->infomoneybalance);
 			this->Infobox->Controls->Add(this->infohealthpercent);
 			this->Infobox->Controls->Add(this->infopercent);
 			this->Infobox->Controls->Add(this->infohealth);
-			this->Infobox->Controls->Add(this->infobalance);
 			this->Infobox->Controls->Add(this->infoname);
 			this->Infobox->Controls->Add(this->picturebox);
 			this->Infobox->Location = System::Drawing::Point(560, 2);
 			this->Infobox->Margin = System::Windows::Forms::Padding(2);
 			this->Infobox->Name = L"Infobox";
 			this->Infobox->Padding = System::Windows::Forms::Padding(2);
-			this->Infobox->Size = System::Drawing::Size(194, 75);
+			this->Infobox->Size = System::Drawing::Size(194, 81);
 			this->Infobox->TabIndex = 1;
 			this->Infobox->TabStop = false;
+			// 
+			// infosatietypercent
+			// 
+			this->infosatietypercent->AutoSize = true;
+			this->infosatietypercent->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infosatietypercent->Location = System::Drawing::Point(67, 57);
+			this->infosatietypercent->Name = L"infosatietypercent";
+			this->infosatietypercent->Size = System::Drawing::Size(32, 17);
+			this->infosatietypercent->TabIndex = 26;
+			this->infosatietypercent->Text = L"100";
+			// 
+			// infopercent1
+			// 
+			this->infopercent1->AutoSize = true;
+			this->infopercent1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infopercent1->Location = System::Drawing::Point(101, 57);
+			this->infopercent1->Name = L"infopercent1";
+			this->infopercent1->Size = System::Drawing::Size(23, 17);
+			this->infopercent1->TabIndex = 25;
+			this->infopercent1->Text = L"%";
+			// 
+			// infosatietylabel
+			// 
+			this->infosatietylabel->AutoSize = true;
+			this->infosatietylabel->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infosatietylabel->Location = System::Drawing::Point(-3, 57);
+			this->infosatietylabel->Name = L"infosatietylabel";
+			this->infosatietylabel->Size = System::Drawing::Size(70, 17);
+			this->infosatietylabel->TabIndex = 24;
+			this->infosatietylabel->Text = L"—˚ÚÓÒÚ¸";
 			// 
 			// infomoneybalance
 			// 
 			this->infomoneybalance->AutoSize = true;
 			this->infomoneybalance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->infomoneybalance->Location = System::Drawing::Point(5, 34);
+			this->infomoneybalance->Location = System::Drawing::Point(11, 18);
 			this->infomoneybalance->Name = L"infomoneybalance";
 			this->infomoneybalance->Size = System::Drawing::Size(56, 19);
 			this->infomoneybalance->TabIndex = 20;
@@ -396,7 +468,7 @@ namespace —ourseWork— {
 			this->infohealthpercent->AutoSize = true;
 			this->infohealthpercent->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->infohealthpercent->Location = System::Drawing::Point(68, 56);
+			this->infohealthpercent->Location = System::Drawing::Point(67, 39);
 			this->infohealthpercent->Name = L"infohealthpercent";
 			this->infohealthpercent->Size = System::Drawing::Size(32, 17);
 			this->infohealthpercent->TabIndex = 19;
@@ -407,7 +479,7 @@ namespace —ourseWork— {
 			this->infopercent->AutoSize = true;
 			this->infopercent->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->infopercent->Location = System::Drawing::Point(101, 56);
+			this->infopercent->Location = System::Drawing::Point(101, 39);
 			this->infopercent->Name = L"infopercent";
 			this->infopercent->Size = System::Drawing::Size(23, 17);
 			this->infopercent->TabIndex = 18;
@@ -418,29 +490,18 @@ namespace —ourseWork— {
 			this->infohealth->AutoSize = true;
 			this->infohealth->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->infohealth->Location = System::Drawing::Point(-3, 56);
+			this->infohealth->Location = System::Drawing::Point(-3, 39);
 			this->infohealth->Name = L"infohealth";
 			this->infohealth->Size = System::Drawing::Size(72, 17);
 			this->infohealth->TabIndex = 2;
 			this->infohealth->Text = L"«‰ÓÓ‚¸Â";
-			// 
-			// infobalance
-			// 
-			this->infobalance->AutoSize = true;
-			this->infobalance->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->infobalance->Location = System::Drawing::Point(-3, 17);
-			this->infobalance->Name = L"infobalance";
-			this->infobalance->Size = System::Drawing::Size(56, 17);
-			this->infobalance->TabIndex = 2;
-			this->infobalance->Text = L"¡‡Î‡ÌÒ";
 			// 
 			// infoname
 			// 
 			this->infoname->AutoSize = true;
 			this->infoname->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->infoname->Location = System::Drawing::Point(-3, 0);
+			this->infoname->Location = System::Drawing::Point(-3, 1);
 			this->infoname->Name = L"infoname";
 			this->infoname->Size = System::Drawing::Size(38, 17);
 			this->infoname->TabIndex = 1;
@@ -451,7 +512,7 @@ namespace —ourseWork— {
 			this->picturebox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picturebox.Image")));
 			this->picturebox->Location = System::Drawing::Point(130, 0);
 			this->picturebox->Name = L"picturebox";
-			this->picturebox->Size = System::Drawing::Size(64, 75);
+			this->picturebox->Size = System::Drawing::Size(64, 91);
 			this->picturebox->TabIndex = 0;
 			this->picturebox->TabStop = false;
 			// 
@@ -467,9 +528,9 @@ namespace —ourseWork— {
 			this->groupBoxhuman->Controls->Add(this->humanname);
 			this->groupBoxhuman->Controls->Add(this->labelhumanname);
 			this->groupBoxhuman->Controls->Add(this->labelmyhuman);
-			this->groupBoxhuman->Location = System::Drawing::Point(241, 82);
+			this->groupBoxhuman->Location = System::Drawing::Point(228, 78);
 			this->groupBoxhuman->Name = L"groupBoxhuman";
-			this->groupBoxhuman->Size = System::Drawing::Size(259, 361);
+			this->groupBoxhuman->Size = System::Drawing::Size(256, 364);
 			this->groupBoxhuman->TabIndex = 3;
 			this->groupBoxhuman->TabStop = false;
 			this->groupBoxhuman->Visible = false;
@@ -600,9 +661,9 @@ namespace —ourseWork— {
 			this->groupBoxworker->Controls->Add(this->workername);
 			this->groupBoxworker->Controls->Add(this->labelworkerhumanname);
 			this->groupBoxworker->Controls->Add(this->labelworker);
-			this->groupBoxworker->Location = System::Drawing::Point(241, 82);
+			this->groupBoxworker->Location = System::Drawing::Point(231, 81);
 			this->groupBoxworker->Name = L"groupBoxworker";
-			this->groupBoxworker->Size = System::Drawing::Size(259, 361);
+			this->groupBoxworker->Size = System::Drawing::Size(259, 366);
 			this->groupBoxworker->TabIndex = 11;
 			this->groupBoxworker->TabStop = false;
 			this->groupBoxworker->Visible = false;
@@ -729,9 +790,9 @@ namespace —ourseWork— {
 			this->groupBoxmd->Controls->Add(this->mdname);
 			this->groupBoxmd->Controls->Add(this->labelmdname);
 			this->groupBoxmd->Controls->Add(this->labelmedicalcard);
-			this->groupBoxmd->Location = System::Drawing::Point(241, 82);
+			this->groupBoxmd->Location = System::Drawing::Point(227, 77);
 			this->groupBoxmd->Name = L"groupBoxmd";
-			this->groupBoxmd->Size = System::Drawing::Size(259, 361);
+			this->groupBoxmd->Size = System::Drawing::Size(259, 366);
 			this->groupBoxmd->TabIndex = 12;
 			this->groupBoxmd->TabStop = false;
 			this->groupBoxmd->Visible = false;
@@ -793,7 +854,7 @@ namespace —ourseWork— {
 				static_cast<System::Byte>(204)));
 			this->imt->Location = System::Drawing::Point(107, 177);
 			this->imt->Name = L"imt";
-			this->imt->Size = System::Drawing::Size(45, 17);
+			this->imt->Size = System::Drawing::Size(45, 22);
 			this->imt->TabIndex = 14;
 			this->imt->Text = L"»Ã“";
 			this->imt->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -921,9 +982,9 @@ namespace —ourseWork— {
 			this->groupBoxclothes->Controls->Add(this->dataGridViewclothes);
 			this->groupBoxclothes->Controls->Add(this->buttonsewup);
 			this->groupBoxclothes->Controls->Add(this->labelclothes);
-			this->groupBoxclothes->Location = System::Drawing::Point(241, 82);
+			this->groupBoxclothes->Location = System::Drawing::Point(230, 80);
 			this->groupBoxclothes->Name = L"groupBoxclothes";
-			this->groupBoxclothes->Size = System::Drawing::Size(259, 361);
+			this->groupBoxclothes->Size = System::Drawing::Size(259, 366);
 			this->groupBoxclothes->TabIndex = 13;
 			this->groupBoxclothes->TabStop = false;
 			this->groupBoxclothes->Visible = false;
@@ -954,30 +1015,30 @@ namespace —ourseWork— {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
 			this->dataGridViewclothes->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle17->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle17->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle17->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle17->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle17->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle17->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle17->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewclothes->ColumnHeadersVisible = false;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
 					this->cloth
 			});
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle20->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle20->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle20->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle20->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle20->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle20->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle20->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle20;
 			this->dataGridViewclothes->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->dataGridViewclothes->Location = System::Drawing::Point(6, 83);
@@ -989,8 +1050,8 @@ namespace —ourseWork— {
 			// 
 			// parametr
 			// 
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::White;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle18->BackColor = System::Drawing::Color::White;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle18;
 			this->parametr->Frozen = true;
 			this->parametr->HeaderText = L"œ‡‡ÏÂÚ";
 			this->parametr->MaxInputLength = 30;
@@ -1001,8 +1062,8 @@ namespace —ourseWork— {
 			// 
 			// cloth
 			// 
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::White;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle19->BackColor = System::Drawing::Color::White;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle19;
 			this->cloth->Frozen = true;
 			this->cloth->HeaderText = L"Œ‰ÂÊ‰‡";
 			this->cloth->MaxInputLength = 30;
@@ -1038,6 +1099,115 @@ namespace —ourseWork— {
 			this->labelclothes->TabIndex = 2;
 			this->labelclothes->Text = L"Œ‰ÂÊ‰‡";
 			// 
+			// groupBoxfood
+			// 
+			this->groupBoxfood->BackColor = System::Drawing::Color::NavajoWhite;
+			this->groupBoxfood->Controls->Add(this->threebutton);
+			this->groupBoxfood->Controls->Add(this->twofoodbutton);
+			this->groupBoxfood->Controls->Add(this->onefoodbutton);
+			this->groupBoxfood->Controls->Add(this->satiety);
+			this->groupBoxfood->Controls->Add(this->satietypercent);
+			this->groupBoxfood->Controls->Add(this->labelsatiety);
+			this->groupBoxfood->Controls->Add(this->foodlabel);
+			this->groupBoxfood->Location = System::Drawing::Point(229, 79);
+			this->groupBoxfood->Name = L"groupBoxfood";
+			this->groupBoxfood->Size = System::Drawing::Size(259, 366);
+			this->groupBoxfood->TabIndex = 15;
+			this->groupBoxfood->TabStop = false;
+			this->groupBoxfood->Visible = false;
+			// 
+			// threebutton
+			// 
+			this->threebutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->threebutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->threebutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->threebutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->threebutton->Location = System::Drawing::Point(69, 242);
+			this->threebutton->Name = L"threebutton";
+			this->threebutton->Size = System::Drawing::Size(124, 52);
+			this->threebutton->TabIndex = 23;
+			this->threebutton->Text = L"–ÂÒÚÓ‡Ì  (100$)";
+			this->threebutton->UseVisualStyleBackColor = false;
+			this->threebutton->Click += gcnew System::EventHandler(this, &Game::threebutton_Click);
+			// 
+			// twofoodbutton
+			// 
+			this->twofoodbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->twofoodbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->twofoodbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->twofoodbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->twofoodbutton->Location = System::Drawing::Point(69, 167);
+			this->twofoodbutton->Name = L"twofoodbutton";
+			this->twofoodbutton->Size = System::Drawing::Size(124, 52);
+			this->twofoodbutton->TabIndex = 22;
+			this->twofoodbutton->Text = L" ‡ÙÂ (20$)";
+			this->twofoodbutton->UseVisualStyleBackColor = false;
+			this->twofoodbutton->Click += gcnew System::EventHandler(this, &Game::twofoodbutton_Click);
+			// 
+			// onefoodbutton
+			// 
+			this->onefoodbutton->BackColor = System::Drawing::Color::Goldenrod;
+			this->onefoodbutton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->onefoodbutton->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->onefoodbutton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->onefoodbutton->Location = System::Drawing::Point(69, 99);
+			this->onefoodbutton->Name = L"onefoodbutton";
+			this->onefoodbutton->Size = System::Drawing::Size(124, 52);
+			this->onefoodbutton->TabIndex = 15;
+			this->onefoodbutton->Text = L"‘‡ÒÚ-‘Û‰ (5$)";
+			this->onefoodbutton->UseVisualStyleBackColor = false;
+			this->onefoodbutton->Click += gcnew System::EventHandler(this, &Game::onefoodbutton_Click);
+			// 
+			// satiety
+			// 
+			this->satiety->AutoSize = true;
+			this->satiety->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->satiety->Location = System::Drawing::Point(124, 60);
+			this->satiety->Name = L"satiety";
+			this->satiety->Size = System::Drawing::Size(32, 17);
+			this->satiety->TabIndex = 21;
+			this->satiety->Text = L"100";
+			// 
+			// satietypercent
+			// 
+			this->satietypercent->AutoSize = true;
+			this->satietypercent->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->satietypercent->Location = System::Drawing::Point(155, 60);
+			this->satietypercent->Name = L"satietypercent";
+			this->satietypercent->Size = System::Drawing::Size(23, 17);
+			this->satietypercent->TabIndex = 21;
+			this->satietypercent->Text = L"%";
+			// 
+			// labelsatiety
+			// 
+			this->labelsatiety->AutoSize = true;
+			this->labelsatiety->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelsatiety->Location = System::Drawing::Point(21, 60);
+			this->labelsatiety->Name = L"labelsatiety";
+			this->labelsatiety->Size = System::Drawing::Size(75, 17);
+			this->labelsatiety->TabIndex = 8;
+			this->labelsatiety->Text = L"—˚ÚÓÒÚ¸:";
+			// 
+			// foodlabel
+			// 
+			this->foodlabel->AutoSize = true;
+			this->foodlabel->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->foodlabel->Location = System::Drawing::Point(95, 16);
+			this->foodlabel->Name = L"foodlabel";
+			this->foodlabel->Size = System::Drawing::Size(85, 22);
+			this->foodlabel->TabIndex = 2;
+			this->foodlabel->Text = L"œËÚ‡ÌËÂ";
+			// 
 			// groupBoxrealty
 			// 
 			this->groupBoxrealty->BackColor = System::Drawing::Color::NavajoWhite;
@@ -1052,7 +1222,7 @@ namespace —ourseWork— {
 			this->groupBoxrealty->Controls->Add(this->realtyhouse);
 			this->groupBoxrealty->Controls->Add(this->labelrealtyhouse);
 			this->groupBoxrealty->Controls->Add(this->labelrealty);
-			this->groupBoxrealty->Location = System::Drawing::Point(241, 82);
+			this->groupBoxrealty->Location = System::Drawing::Point(232, 82);
 			this->groupBoxrealty->Name = L"groupBoxrealty";
 			this->groupBoxrealty->Size = System::Drawing::Size(259, 361);
 			this->groupBoxrealty->TabIndex = 12;
@@ -1213,9 +1383,9 @@ namespace —ourseWork— {
 			this->groupBoxboosters->Controls->Add(this->autohealthbutton);
 			this->groupBoxboosters->Controls->Add(this->autosewupcost);
 			this->groupBoxboosters->Controls->Add(this->autosewupbutton);
-			this->groupBoxboosters->Location = System::Drawing::Point(12, 70);
+			this->groupBoxboosters->Location = System::Drawing::Point(12, 52);
 			this->groupBoxboosters->Name = L"groupBoxboosters";
-			this->groupBoxboosters->Size = System::Drawing::Size(137, 239);
+			this->groupBoxboosters->Size = System::Drawing::Size(123, 239);
 			this->groupBoxboosters->TabIndex = 15;
 			this->groupBoxboosters->TabStop = false;
 			this->groupBoxboosters->Visible = false;
@@ -1225,7 +1395,7 @@ namespace —ourseWork— {
 			this->autoeat->AutoSize = true;
 			this->autoeat->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->autoeat->Location = System::Drawing::Point(61, 62);
+			this->autoeat->Location = System::Drawing::Point(48, 62);
 			this->autoeat->Name = L"autoeat";
 			this->autoeat->Size = System::Drawing::Size(69, 19);
 			this->autoeat->TabIndex = 25;
@@ -1241,7 +1411,7 @@ namespace —ourseWork— {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->autoeatbutton->Location = System::Drawing::Point(6, 7);
 			this->autoeatbutton->Name = L"autoeatbutton";
-			this->autoeatbutton->Size = System::Drawing::Size(124, 52);
+			this->autoeatbutton->Size = System::Drawing::Size(111, 52);
 			this->autoeatbutton->TabIndex = 24;
 			this->autoeatbutton->Text = L"¿ÌÚË„ÓÎÓ‰";
 			this->autoeatbutton->UseVisualStyleBackColor = false;
@@ -1251,7 +1421,7 @@ namespace —ourseWork— {
 			this->autohealthcost->AutoSize = true;
 			this->autohealthcost->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->autohealthcost->Location = System::Drawing::Point(49, 216);
+			this->autohealthcost->Location = System::Drawing::Point(36, 216);
 			this->autohealthcost->Name = L"autohealthcost";
 			this->autohealthcost->Size = System::Drawing::Size(81, 19);
 			this->autohealthcost->TabIndex = 23;
@@ -1267,7 +1437,7 @@ namespace —ourseWork— {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->autohealthbutton->Location = System::Drawing::Point(7, 161);
 			this->autohealthbutton->Name = L"autohealthbutton";
-			this->autohealthbutton->Size = System::Drawing::Size(124, 52);
+			this->autohealthbutton->Size = System::Drawing::Size(110, 52);
 			this->autohealthbutton->TabIndex = 22;
 			this->autohealthbutton->Text = L"¿‚ÚÓÎÂ˜ÂÌËÂ";
 			this->autohealthbutton->UseVisualStyleBackColor = false;
@@ -1277,7 +1447,7 @@ namespace —ourseWork— {
 			this->autosewupcost->AutoSize = true;
 			this->autosewupcost->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->autosewupcost->Location = System::Drawing::Point(49, 139);
+			this->autosewupcost->Location = System::Drawing::Point(36, 139);
 			this->autosewupcost->Name = L"autosewupcost";
 			this->autosewupcost->Size = System::Drawing::Size(81, 19);
 			this->autosewupcost->TabIndex = 21;
@@ -1293,7 +1463,7 @@ namespace —ourseWork— {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->autosewupbutton->Location = System::Drawing::Point(6, 84);
 			this->autosewupbutton->Name = L"autosewupbutton";
-			this->autosewupbutton->Size = System::Drawing::Size(124, 52);
+			this->autosewupbutton->Size = System::Drawing::Size(111, 52);
 			this->autosewupbutton->TabIndex = 13;
 			this->autosewupbutton->Text = L"¿‚ÚÓÔÓ˜ËÌÍ‡ Ó‰ÂÊ‰˚";
 			this->autosewupbutton->UseVisualStyleBackColor = false;
@@ -1308,21 +1478,22 @@ namespace —ourseWork— {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->boostersbutton->Location = System::Drawing::Point(18, 12);
 			this->boostersbutton->Name = L"boostersbutton";
-			this->boostersbutton->Size = System::Drawing::Size(124, 52);
+			this->boostersbutton->Size = System::Drawing::Size(81, 34);
 			this->boostersbutton->TabIndex = 26;
 			this->boostersbutton->Text = L"¡ÛÒÚÂ˚";
 			this->boostersbutton->UseVisualStyleBackColor = false;
 			this->boostersbutton->Click += gcnew System::EventHandler(this, &Game::boostersbutton_Click);
 			// 
-			// Â‰‡toolStripMenuItem
+			// labeldollar
 			// 
-			this->Â‰‡toolStripMenuItem->AutoSize = false;
-			this->Â‰‡toolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Â‰‡toolStripMenuItem.Image")));
-			this->Â‰‡toolStripMenuItem->Name = L"Â‰‡toolStripMenuItem";
-			this->Â‰‡toolStripMenuItem->Size = System::Drawing::Size(120, 76);
-			this->Â‰‡toolStripMenuItem->Text = L"≈‰‡";
-			this->Â‰‡toolStripMenuItem->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->Â‰‡toolStripMenuItem->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageAboveText;
+			this->labeldollar->AutoSize = true;
+			this->labeldollar->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labeldollar->Location = System::Drawing::Point(-3, 19);
+			this->labeldollar->Name = L"labeldollar";
+			this->labeldollar->Size = System::Drawing::Size(16, 17);
+			this->labeldollar->TabIndex = 27;
+			this->labeldollar->Text = L"$";
 			// 
 			// Game
 			// 
@@ -1331,13 +1502,14 @@ namespace —ourseWork— {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(755, 525);
-			this->Controls->Add(this->boostersbutton);
-			this->Controls->Add(this->groupBoxboosters);
+			this->Controls->Add(this->groupBoxfood);
 			this->Controls->Add(this->groupBoxclothes);
-			this->Controls->Add(this->groupBoxmd);
-			this->Controls->Add(this->groupBoxrealty);
-			this->Controls->Add(this->groupBoxworker);
+			this->Controls->Add(this->boostersbutton);
 			this->Controls->Add(this->groupBoxhuman);
+			this->Controls->Add(this->groupBoxrealty);
+			this->Controls->Add(this->groupBoxboosters);
+			this->Controls->Add(this->groupBoxmd);
+			this->Controls->Add(this->groupBoxworker);
 			this->Controls->Add(this->Infobox);
 			this->Controls->Add(this->menu);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -1365,6 +1537,8 @@ namespace —ourseWork— {
 			this->groupBoxclothes->ResumeLayout(false);
 			this->groupBoxclothes->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewclothes))->EndInit();
+			this->groupBoxfood->ResumeLayout(false);
+			this->groupBoxfood->PerformLayout();
 			this->groupBoxrealty->ResumeLayout(false);
 			this->groupBoxrealty->PerformLayout();
 			this->groupBoxboosters->ResumeLayout(false);
@@ -1388,5 +1562,9 @@ namespace —ourseWork— {
 	private: System::Void buybutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void DataInitialization();
 	private: System::Void boostersbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Â‰‡toolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void onefoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void twofoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void threebutton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

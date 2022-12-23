@@ -6,14 +6,7 @@ Clothes::Clothes()
     this->Pants = "Òðóñû";
     this->Shoes = "Òàïêè";
     this->ClothesStatus = 100;
-}
-
-Clothes::Clothes(String^ Body, String^ Pants, String^ Shoes)
-{
-    this->Body = Body;
-    this->Pants = Pants;
-    this->Shoes = Shoes;
-    this->ClothesStatus = 100;
+    this->AutoSewUp = false;
 }
 
 String^ Clothes::GetBody()
@@ -68,11 +61,14 @@ void Clothes::SewUpClothes()
 
 void Clothes::TearClothes()
 {
-    if (this->ClothesStatus > 0) {
+    if (this->Pants != "Áðþêè") {
         this->ClothesStatus -= 7;
-        if (this->ClothesStatus < 0) {
-            this->ClothesStatus = 0;
-        }
+    }
+    else {
+        this->ClothesStatus -= 3;
+    }
+    if (this->ClothesStatus < 0) {
+        this->ClothesStatus = 0;
     }
 }
 
@@ -82,4 +78,14 @@ void Clothes::BuySuit()
     this->Pants = "Áðþêè";
     this->Shoes = "Òóôëè";
     this->ClothesStatus = 100;
+}
+
+bool Clothes::GetAutoSewUp()
+{
+    return this->AutoSewUp;
+}
+
+void Clothes::SetAutoSewUp(bool argument)
+{
+    this->AutoSewUp = argument;
 }

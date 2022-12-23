@@ -12,6 +12,7 @@ public:
 	bool GetAutoEating();
 	void SetAutoEating(bool argument);
 	Int32 GetSatietyStatus();
+	void SetSatietyStatus(Int32 argument);
 	void UpSatietyStatus(Int32 argument);
 	void DownSatietyStatus();
 };

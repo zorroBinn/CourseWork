@@ -21,6 +21,11 @@ Int32 FoodEating::GetSatietyStatus()
     return this->SatietyStatus;
 }
 
+void FoodEating::SetSatietyStatus(Int32 argument)
+{
+    this->SatietyStatus = argument;
+}
+
 void FoodEating::UpSatietyStatus(Int32 argument)
 {
     this->SatietyStatus += argument;
