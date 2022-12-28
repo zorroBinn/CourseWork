@@ -24,6 +24,9 @@ Int32 FoodEating::GetSatietyStatus()
 void FoodEating::SetSatietyStatus(Int32 argument)
 {
     this->SatietyStatus = argument;
+    if (this->AutoEating == true) {
+        this->SatietyStatus = 100;
+    }
 }
 
 void FoodEating::UpSatietyStatus(Int32 argument)

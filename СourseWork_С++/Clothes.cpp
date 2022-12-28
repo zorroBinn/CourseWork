@@ -88,4 +88,7 @@ bool Clothes::GetAutoSewUp()
 void Clothes::SetAutoSewUp(bool argument)
 {
     this->AutoSewUp = argument;
+    if (this->AutoSewUp == true) {
+        this->ClothesStatus = 100;
+    }
 }

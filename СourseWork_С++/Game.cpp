@@ -387,6 +387,7 @@ System::Void СourseWorkС::Game::DataInitialization()
 			}
 			else {
 				medcard->SetInfinityHealth(true);
+				this->autohealthbutton->BackColor = System::Drawing::Color::LimeGreen;
 			}
 			worker->SetNamework(f->ReadLine());
 			worker->SetPayment(Convert::ToInt32(f->ReadLine()));
@@ -399,6 +400,7 @@ System::Void СourseWorkС::Game::DataInitialization()
 			}
 			else {
 				clothes->SetAutoSewUp(true);
+				this->autosewupbutton->BackColor = System::Drawing::Color::LimeGreen;
 			}
 			realty->SetHousing(f->ReadLine());
 			realty->SetVehicle(f->ReadLine());
@@ -409,6 +411,7 @@ System::Void СourseWorkС::Game::DataInitialization()
 			}
 			else {
 				food->SetAutoEating(true);
+				this->autoeatbutton->BackColor = System::Drawing::Color::LimeGreen;
 			}
 			f->Close();
 
@@ -530,5 +533,53 @@ System::Void СourseWorkС::Game::threebutton_Click(System::Object^ sender, System
 	}
 	else {
 		MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	}
+}
+
+System::Void СourseWorkС::Game::autoeatbutton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (food->GetAutoEating() == false) {
+		if (worker->GetMoneybalance() >= 500000) {
+			System::Windows::Forms::DialogResult result = MessageBox::Show("Автоматическое восполнение сытости позволяет вам больше не беспокоиться о кормлении своего персонажа. Это действие нельзя будет отменить!", "Хотите приобрести антиголод?", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+				this->autoeatbutton->BackColor = System::Drawing::Color::LimeGreen;
+				food->SetAutoEating(true);
+			}
+		}
+		else {
+			MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
+	}
+}
+
+System::Void СourseWorkС::Game::autosewupbutton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (clothes->GetAutoSewUp() == false) {
+		if (worker->GetMoneybalance() >= 1000000) {
+			System::Windows::Forms::DialogResult result = MessageBox::Show("Автоматическое починка одежды позволяет вам больше не беспокоиться о состоянии одежды своего персонажа. Это действие нельзя будет отменить!", "Хотите приобрести автопочинку одежды?", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+				this->autosewupbutton->BackColor = System::Drawing::Color::LimeGreen;
+				clothes->SetAutoSewUp(true);
+			}
+		}
+		else {
+			MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
+	}
+}
+
+System::Void СourseWorkС::Game::autohealthbutton_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (medcard->GetInfinityHealth() == false) {
+		if (worker->GetMoneybalance() >= 1500000) {
+			System::Windows::Forms::DialogResult result = MessageBox::Show("Автоматическое лечение позволяет вам больше не беспокоиться о состоянии здоровья своего персонажа. Это действие нельзя будет отменить!", "Хотите приобрести автолечение?", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
+			if (result == System::Windows::Forms::DialogResult::Yes) {
+				this->autohealthbutton->BackColor = System::Drawing::Color::LimeGreen;
+				medcard->SetInfinityHealth(true);
+			}
+		}
+		else {
+			MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
 	}
 }

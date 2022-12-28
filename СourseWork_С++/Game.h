@@ -200,10 +200,10 @@ namespace —ourseWork— {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle17 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle20 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle18 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle19 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->‡·ÓÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -212,6 +212,7 @@ namespace —ourseWork— {
 			this->Â‰‡toolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Ó‰ÂÊ‰‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Infobox = (gcnew System::Windows::Forms::GroupBox());
+			this->labeldollar = (gcnew System::Windows::Forms::Label());
 			this->infosatietypercent = (gcnew System::Windows::Forms::Label());
 			this->infopercent1 = (gcnew System::Windows::Forms::Label());
 			this->infosatietylabel = (gcnew System::Windows::Forms::Label());
@@ -290,7 +291,6 @@ namespace —ourseWork— {
 			this->autosewupcost = (gcnew System::Windows::Forms::Label());
 			this->autosewupbutton = (gcnew System::Windows::Forms::Button());
 			this->boostersbutton = (gcnew System::Windows::Forms::Button());
-			this->labeldollar = (gcnew System::Windows::Forms::Label());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturebox))->BeginInit();
@@ -418,6 +418,17 @@ namespace —ourseWork— {
 			this->Infobox->Size = System::Drawing::Size(194, 81);
 			this->Infobox->TabIndex = 1;
 			this->Infobox->TabStop = false;
+			// 
+			// labeldollar
+			// 
+			this->labeldollar->AutoSize = true;
+			this->labeldollar->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labeldollar->Location = System::Drawing::Point(-3, 19);
+			this->labeldollar->Name = L"labeldollar";
+			this->labeldollar->Size = System::Drawing::Size(16, 17);
+			this->labeldollar->TabIndex = 27;
+			this->labeldollar->Text = L"$";
 			// 
 			// infosatietypercent
 			// 
@@ -1015,30 +1026,30 @@ namespace —ourseWork— {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
 			this->dataGridViewclothes->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle17->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle17->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle17->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle17->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle17->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle17->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle17->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewclothes->ColumnHeadersVisible = false;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
 					this->cloth
 			});
-			dataGridViewCellStyle20->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle20->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle20->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle20->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle20->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle20->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle20->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle20;
+			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle8;
 			this->dataGridViewclothes->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->dataGridViewclothes->Location = System::Drawing::Point(6, 83);
@@ -1050,8 +1061,8 @@ namespace —ourseWork— {
 			// 
 			// parametr
 			// 
-			dataGridViewCellStyle18->BackColor = System::Drawing::Color::White;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle18;
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::White;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle6;
 			this->parametr->Frozen = true;
 			this->parametr->HeaderText = L"œ‡‡ÏÂÚ";
 			this->parametr->MaxInputLength = 30;
@@ -1062,8 +1073,8 @@ namespace —ourseWork— {
 			// 
 			// cloth
 			// 
-			dataGridViewCellStyle19->BackColor = System::Drawing::Color::White;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle19;
+			dataGridViewCellStyle7->BackColor = System::Drawing::Color::White;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle7;
 			this->cloth->Frozen = true;
 			this->cloth->HeaderText = L"Œ‰ÂÊ‰‡";
 			this->cloth->MaxInputLength = 30;
@@ -1415,6 +1426,7 @@ namespace —ourseWork— {
 			this->autoeatbutton->TabIndex = 24;
 			this->autoeatbutton->Text = L"¿ÌÚË„ÓÎÓ‰";
 			this->autoeatbutton->UseVisualStyleBackColor = false;
+			this->autoeatbutton->Click += gcnew System::EventHandler(this, &Game::autoeatbutton_Click);
 			// 
 			// autohealthcost
 			// 
@@ -1441,6 +1453,7 @@ namespace —ourseWork— {
 			this->autohealthbutton->TabIndex = 22;
 			this->autohealthbutton->Text = L"¿‚ÚÓÎÂ˜ÂÌËÂ";
 			this->autohealthbutton->UseVisualStyleBackColor = false;
+			this->autohealthbutton->Click += gcnew System::EventHandler(this, &Game::autohealthbutton_Click);
 			// 
 			// autosewupcost
 			// 
@@ -1467,6 +1480,7 @@ namespace —ourseWork— {
 			this->autosewupbutton->TabIndex = 13;
 			this->autosewupbutton->Text = L"¿‚ÚÓÔÓ˜ËÌÍ‡ Ó‰ÂÊ‰˚";
 			this->autosewupbutton->UseVisualStyleBackColor = false;
+			this->autosewupbutton->Click += gcnew System::EventHandler(this, &Game::autosewupbutton_Click);
 			// 
 			// boostersbutton
 			// 
@@ -1483,17 +1497,6 @@ namespace —ourseWork— {
 			this->boostersbutton->Text = L"¡ÛÒÚÂ˚";
 			this->boostersbutton->UseVisualStyleBackColor = false;
 			this->boostersbutton->Click += gcnew System::EventHandler(this, &Game::boostersbutton_Click);
-			// 
-			// labeldollar
-			// 
-			this->labeldollar->AutoSize = true;
-			this->labeldollar->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->labeldollar->Location = System::Drawing::Point(-3, 19);
-			this->labeldollar->Name = L"labeldollar";
-			this->labeldollar->Size = System::Drawing::Size(16, 17);
-			this->labeldollar->TabIndex = 27;
-			this->labeldollar->Text = L"$";
 			// 
 			// Game
 			// 
@@ -1566,5 +1569,8 @@ namespace —ourseWork— {
 	private: System::Void onefoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void twofoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void threebutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void autoeatbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void autosewupbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void autohealthbutton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

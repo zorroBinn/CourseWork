@@ -67,4 +67,7 @@ bool MedicalCard::GetInfinityHealth()
 void MedicalCard::SetInfinityHealth(bool argument)
 {
     this->InfinityHealth = argument;
+    if (this->InfinityHealth == true) {
+        this->HealthStatus = 100;
+    }
 }
