@@ -1,4 +1,8 @@
 #pragma once
+#include "Clothes.h"
+#include "MedicalCard.h"
+#include "Realty.h"
+#include "FoodEating.h"
 using System::String;
 using System::Int32;
 
@@ -10,6 +14,10 @@ protected:
 	String^ Name; //Имя
 	String^ Sex; //Пол
 	Int32 Level; //Игровой уровень
+	MedicalCard^ MedCard;
+	Realty^ realty;
+	Clothes^ clothes;
+	FoodEating^ food;
 
 public:
 	Human();
@@ -25,5 +33,6 @@ public:
 	void SetLevel(Int32 level);
 	void LevelUp();
 	void ChangeMoney(Int32 money);
+	MedicalCard^ GetMedCard();
 };
 

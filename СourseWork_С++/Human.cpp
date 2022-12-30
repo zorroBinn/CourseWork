@@ -8,6 +8,10 @@ Human::Human()
     this->Moneybalance = 1000;
     this->Sex = "test";
     this->Level = 0;
+    this->MedCard = gcnew MedicalCard();
+    this->realty = gcnew Realty();
+    this->clothes = gcnew Clothes();
+    this->food = gcnew FoodEating();
 }
 
 Int32 Human::GetAge()
@@ -68,4 +72,24 @@ void Human::LevelUp()
 void Human::ChangeMoney(Int32 money)
 {
     this->Moneybalance += money;
+}
+
+MedicalCard^ Human::GetMedCard()
+{
+    return this->MedCard;
+}
+
+Realty^ Human::GetRealty()
+{
+    return this->realty;
+}
+
+Clothes^ Human::GetClothes()
+{
+    return this->clothes;
+}
+
+FoodEating^ Human::GetFood()
+{
+    return this->food;
 }
