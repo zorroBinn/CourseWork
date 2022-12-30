@@ -34,5 +34,8 @@ public:
 	void LevelUp();
 	void ChangeMoney(Int32 money);
 	MedicalCard^ GetMedCard();
+	Realty^ GetRealty();
+	Clothes^ GetClothes();
+	FoodEating^ GetFood();
 };
 

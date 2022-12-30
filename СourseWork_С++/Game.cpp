@@ -1,5 +1,132 @@
 #include "Game.h"
 
+System::Void ÑourseWorkÑ::Game::DataInitialization()
+{
+	if (File::Exists("save.txt") == true) {
+		try
+		{
+			StreamReader^ f = File::OpenText("save.txt");
+			worker->SetName(f->ReadLine());
+			worker->SetSex(f->ReadLine());
+			worker->SetAge(Convert::ToInt32(f->ReadLine()));
+			worker->SetMoneyBalance(Convert::ToInt32(f->ReadLine()));
+			worker->GetMedCard()->SetWeight(Convert::ToInt32(f->ReadLine()));
+			worker->GetMedCard()->SetHeight(Convert::ToInt32(f->ReadLine()));
+			worker->GetMedCard()->SetHealthStatus(Convert::ToInt32(f->ReadLine()));
+			if (f->ReadLine() == "0") {
+				worker->GetMedCard()->SetInfinityHealth(false);
+			}
+			else {
+				worker->GetMedCard()->SetInfinityHealth(true);
+				this->autohealthbutton->BackColor = System::Drawing::Color::LimeGreen;
+			}
+			worker->SetNamework(f->ReadLine());
+			worker->SetPayment(Convert::ToInt32(f->ReadLine()));
+			worker->GetClothes()->SetBody(f->ReadLine());
+			worker->GetClothes()->SetPants(f->ReadLine());
+			worker->GetClothes()->SetShoes(f->ReadLine());
+			worker->GetClothes()->SetClothesStatus(Convert::ToInt32(f->ReadLine()));
+			if (f->ReadLine() == "0") {
+				worker->GetClothes()->SetAutoSewUp(false);
+			}
+			else {
+				worker->GetClothes()->SetAutoSewUp(true);
+				this->autosewupbutton->BackColor = System::Drawing::Color::LimeGreen;
+			}
+			worker->GetRealty()->SetHousing(f->ReadLine());
+			worker->GetRealty()->SetVehicle(f->ReadLine());
+			worker->SetLevel(Convert::ToInt32(f->ReadLine()));
+			worker->GetFood()->SetSatietyStatus(Convert::ToInt32(f->ReadLine()));
+			if (f->ReadLine() == "0") {
+				worker->GetFood()->SetAutoEating(false);
+			}
+			else {
+				worker->GetFood()->SetAutoEating(true);
+				this->autoeatbutton->BackColor = System::Drawing::Color::LimeGreen;
+			}
+			f->Close();
+
+			SatietyUpdating();
+			MoneyBalanceUpdating();
+			HealthUpdating();
+			if (worker->GetClothes()->GetPants() == "Áðþêè") {
+				this->buttonsewup->Text = "Ïî÷èíèòü îäåæäó(10$)";
+			}
+			this->infoname->Text = worker->GetName();
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows->Add();
+			this->dataGridViewclothes->Rows[0]->Cells[0]->Value = L"Âåðõ";
+			this->dataGridViewclothes->Rows[1]->Cells[0]->Value = L"Øòàíû";
+			this->dataGridViewclothes->Rows[2]->Cells[0]->Value = L"Îáóâü";
+			this->dataGridViewclothes->Rows[3]->Cells[0]->Value = L"Ñîñòîÿíèå îäåæäû";
+			this->dataGridViewclothes->Rows[0]->Cells[1]->Value = worker->GetClothes()->GetBody();
+			this->dataGridViewclothes->Rows[1]->Cells[1]->Value = worker->GetClothes()->GetPants();
+			this->dataGridViewclothes->Rows[2]->Cells[1]->Value = worker->GetClothes()->GetShoes();
+			this->dataGridViewclothes->Rows[3]->Cells[1]->Value = worker->GetClothes()->GetClothesStatus();
+			this->humanname->Text = worker->GetName();
+			this->humansex->Text = worker->GetSex();
+			this->humanage->Text = Convert::ToString(worker->GetAge());
+			if (worker->GetClothes()->GetShoes() == "Òóôëè") {
+				this->buysuitbutton->Visible = false;
+			}
+			this->mdname->Text = worker->GetName();
+			this->mdweight->Text = Convert::ToString(worker->GetMedCard()->GetWeight());
+			this->mdheight->Text = Convert::ToString(worker->GetMedCard()->GetHeight());
+			this->realtyhouse->Text = worker->GetRealty()->GetHousing();
+			this->realtycar->Text = worker->GetRealty()->GetVehicle();
+			this->workername->Text = worker->GetName();
+			this->Namework->Text = worker->GetNamework();
+			this->payment->Text = Convert::ToString(worker->GetPayment());
+			Double IMT = (worker->GetMedCard()->GetWeight() + 0.0) / (worker->GetMedCard()->GetHeight() * worker->GetMedCard()->GetHeight() / 10000);
+			this->imt->Text = Convert::ToString(IMT);
+			if (IMT < 18.5) {
+				this->imtcomment->Text = "Íèæå íîðìû";
+			}
+			else if (IMT > 26.0) {
+				this->imtcomment->Text = "Âûøå íîðìû";
+			}
+			else {
+				this->imtcomment->Text = "Íîðìà";
+			}
+
+		}
+		catch (Exception^)
+		{
+			MessageBox::Show("Íå óäàëîñòü çàãðóçèòü ñîõðàíåíèå!", "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Owner->WindowState = FormWindowState::Normal;
+			this->Owner->ShowInTaskbar = true;
+			this->Close();
+		}
+	}
+}
+
+System::Void ÑourseWorkÑ::Game::MoneyBalanceUpdating()
+{
+	this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
+	this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+}
+
+System::Void ÑourseWorkÑ::Game::SatietyUpdating()
+{
+	this->infosatietypercent->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
+	this->satiety->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
+}
+
+System::Void ÑourseWorkÑ::Game::HealthUpdating()
+{
+	this->infohealthpercent->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
+	this->health->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
+}
+
+System::Void ÑourseWorkÑ::Game::LevelUp()
+{
+	worker->LevelUp();
+	this->Namework->Text = worker->GetNamework();
+	this->payment->Text = Convert::ToString(worker->GetPayment());
+}
+
 System::Void ÑourseWorkÑ::Game::ïåðñîíàæToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->groupBoxworker->Visible = false;
@@ -8,7 +135,6 @@ System::Void ÑourseWorkÑ::Game::ïåðñîíàæToolStripMenuItem_Click(System::Object^ 
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
 	this->groupBoxhuman->Visible = true;
-	this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
 }
 
 System::Void ÑourseWorkÑ::Game::çäîðîâüåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
@@ -49,6 +175,16 @@ System::Void ÑourseWorkÑ::Game::îäåæäàToolStripMenuItem_Click(System::Object^ se
 	this->groupBoxmd->Visible = false;
 	this->groupBoxrealty->Visible = false;
 	this->groupBoxclothes->Visible = true;
+}
+
+System::Void ÑourseWorkÑ::Game::åäàtoolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	this->groupBoxfood->Visible = true;
+	this->groupBoxrealty->Visible = false;
+	this->groupBoxhuman->Visible = false;
+	this->groupBoxworker->Visible = false;
+	this->groupBoxmd->Visible = false;
+	this->groupBoxclothes->Visible = false;
 }
 
 System::Void ÑourseWorkÑ::Game::checkBoxhouse_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
@@ -149,15 +285,13 @@ System::Void ÑourseWorkÑ::Game::buysuitbutton_Click(System::Object^ sender, Syst
 {
 	if (worker->GetMoneybalance() >= 5000) {
 		worker->GetClothes()->BuySuit();
-		worker->GetClothes()->SetClothesStatus(100);
 		this->dataGridViewclothes->Rows[0]->Cells[1]->Value = worker->GetClothes()->GetBody();
 		this->dataGridViewclothes->Rows[1]->Cells[1]->Value = worker->GetClothes()->GetPants();
 		this->dataGridViewclothes->Rows[2]->Cells[1]->Value = worker->GetClothes()->GetShoes();
 		this->dataGridViewclothes->Rows[3]->Cells[1]->Value = worker->GetClothes()->GetClothesStatus();
 		this->buysuitbutton->Visible = false;
 		worker->ChangeMoney(-5000);
-		this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-		this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+		MoneyBalanceUpdating();
 	}
 	else {
 		MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -176,8 +310,7 @@ System::Void ÑourseWorkÑ::Game::buttonsewup_Click(System::Object^ sender, System
 			else {
 				worker->ChangeMoney(-10);
 			}
-			this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-			this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+			MoneyBalanceUpdating();
 		}
 		else {
 			MessageBox::Show("Îäåæäà êàê íîâåíüêàÿ!", "Çà÷åì?", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -192,76 +325,42 @@ System::Void ÑourseWorkÑ::Game::workingbutton_Click(System::Object^ sender, Syst
 {
 	if (worker->GetMedCard()->GetHealthStatus() > 0 && worker->GetClothes()->GetClothesStatus() > 0 && worker->GetFood()->GetSatietyStatus() > 0) {
 		worker->ChangeMoney(worker->GetPayment());
-		this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-		this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+		MoneyBalanceUpdating();
 		if (worker->GetClothes()->GetAutoSewUp() != true) {
 			worker->GetClothes()->TearClothes();
 			this->dataGridViewclothes->Rows[3]->Cells[1]->Value = worker->GetClothes()->GetClothesStatus();
 		}
-		else {
-			worker->ChangeMoney(-1);
-			this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-			this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
-		}
 		if (worker->GetMedCard()->GetInfinityHealth() != true) {
 			worker->GetMedCard()->DownStatus();
-			this->infohealthpercent->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
-			this->health->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
-		}
-		else {
-			worker->ChangeMoney(-2);
-			this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-			this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+			HealthUpdating();
 		}
 		if (worker->GetFood()->GetAutoEating() != true) {
 			worker->GetFood()->DownSatietyStatus();
-			this->infosatietypercent->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
-			this->satiety->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
-		}
-		else {
-			worker->ChangeMoney(-3);
-			this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-			this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+			SatietyUpdating();
 		}
 		if (worker->GetMoneybalance() > 100000000 && worker->GetLevel() < 4) {
-			if (worker->GetNamework() != "Ìàãíàò") {
-				MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
+			MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			worker->SetNamework("Ìàãíàò");
 			worker->SetPayment(900000);
-			worker->LevelUp();
-			this->Namework->Text = worker->GetNamework();
-			this->payment->Text = Convert::ToString(worker->GetPayment());
+			LevelUp();
 		}
 		if (worker->GetMoneybalance() > 10000000 && worker->GetLevel() < 3) {
-			if (worker->GetNamework() != "Áèçíåñìåí") {
-				MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
+			MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			worker->SetNamework("Áèçíåñìåí");
 			worker->SetPayment(185000);
-			worker->LevelUp();
-			this->Namework->Text = worker->GetNamework();
-			this->payment->Text = Convert::ToString(worker->GetPayment());
+			LevelUp();
 		}
 		if (worker->GetMoneybalance() > 1000000 && worker->GetLevel() < 2) {
-			if (worker->GetNamework() != "Ãëàâà îòäåëà") {
-				MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
+			MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			worker->SetNamework("Ãëàâà îòäåëà");
 			worker->SetPayment(70000);
-			worker->LevelUp();
-			this->Namework->Text = worker->GetNamework();
-			this->payment->Text = Convert::ToString(worker->GetPayment());
+			LevelUp();
 		}
 		if (worker->GetMoneybalance() > 100000 && worker->GetLevel() < 1) {
-			if (worker->GetNamework() != "Êàññèð") {
-				MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
+			MessageBox::Show("Ñ ïîâûøåíèåì!", "Óðà!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			worker->SetNamework("Êàññèð");
 			worker->SetPayment(13000);
-			worker->LevelUp();
-			this->Namework->Text = worker->GetNamework();
-			this->payment->Text = Convert::ToString(worker->GetPayment());
+			LevelUp();
 		}
 	}
 	else {
@@ -275,10 +374,8 @@ System::Void ÑourseWorkÑ::Game::healthbutton_Click(System::Object^ sender, Syste
 		if (worker->GetMedCard()->GetHealthStatus() < 100) {
 			worker->GetMedCard()->UpStatus();
 			worker->ChangeMoney(-10);
-			this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-			this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
-			this->infohealthpercent->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
-			this->health->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
+			MoneyBalanceUpdating();
+			HealthUpdating();
 		}
 		else {
 			MessageBox::Show("Âû êàê îãóð÷èê!", "Çà÷åì ? ", MessageBoxButtons::OK, MessageBoxIcon::Information);
@@ -297,8 +394,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 				worker->GetRealty()->SetHousing(this->comboBoxrealtyhouse->Text);
 				worker->ChangeMoney(-3000000);
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
-				this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-				this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+				MoneyBalanceUpdating();
 			}
 			else {
 				MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -309,8 +405,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 				worker->GetRealty()->SetHousing(this->comboBoxrealtyhouse->Text);
 				worker->ChangeMoney(-7000000);
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
-				this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-				this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+				MoneyBalanceUpdating();
 			}
 			else {
 				MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -321,8 +416,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 				worker->GetRealty()->SetHousing(this->comboBoxrealtyhouse->Text);
 				worker->ChangeMoney(-20000000);
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
-				this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-				this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+				MoneyBalanceUpdating();
 			}
 			else {
 				MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -335,8 +429,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 				worker->GetRealty()->SetVehicle(this->comboBoxrealtycar->Text);
 				worker->ChangeMoney(-200000);
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
-				this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-				this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+				MoneyBalanceUpdating();
 			}
 			else {
 				MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -347,8 +440,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 				worker->GetRealty()->SetVehicle(this->comboBoxrealtycar->Text);
 				worker->ChangeMoney(-600000);
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
-				this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-				this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+				MoneyBalanceUpdating();
 			}
 			else {
 				MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -359,116 +451,11 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 				worker->GetRealty()->SetVehicle(this->comboBoxrealtycar->Text);
 				worker->ChangeMoney(-9000000);
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
-				this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-				this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+				MoneyBalanceUpdating();
 			}
 			else {
 				MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 			}
-		}
-	}
-}
-
-System::Void ÑourseWorkÑ::Game::DataInitialization()
-{
-	if (File::Exists("save.txt") == true) {
-		try
-		{
-			StreamReader^ f = File::OpenText("save.txt");
-			worker->SetName(f->ReadLine());
-			worker->SetSex(f->ReadLine());
-			worker->SetAge(Convert::ToInt32(f->ReadLine()));
-			worker->SetMoneyBalance(Convert::ToInt32(f->ReadLine()));
-			worker->GetMedCard()->SetWeight(Convert::ToInt32(f->ReadLine()));
-			worker->GetMedCard()->SetHeight(Convert::ToInt32(f->ReadLine()));
-			worker->GetMedCard()->SetHealthStatus(Convert::ToInt32(f->ReadLine()));
-			if (f->ReadLine() == "0") {
-				worker->GetMedCard()->SetInfinityHealth(false);
-			}
-			else {
-				worker->GetMedCard()->SetInfinityHealth(true);
-				this->autohealthbutton->BackColor = System::Drawing::Color::LimeGreen;
-			}
-			worker->SetNamework(f->ReadLine());
-			worker->SetPayment(Convert::ToInt32(f->ReadLine()));
-			worker->GetClothes()->SetBody(f->ReadLine());
-			worker->GetClothes()->SetPants(f->ReadLine());
-			worker->GetClothes()->SetShoes(f->ReadLine());
-			worker->GetClothes()->SetClothesStatus(Convert::ToInt32(f->ReadLine()));
-			if (f->ReadLine() == "0") {
-				worker->GetClothes()->SetAutoSewUp(false);
-			}
-			else {
-				worker->GetClothes()->SetAutoSewUp(true);
-				this->autosewupbutton->BackColor = System::Drawing::Color::LimeGreen;
-			}
-			worker->GetRealty()->SetHousing(f->ReadLine());
-			worker->GetRealty()->SetVehicle(f->ReadLine());
-			worker->SetLevel(Convert::ToInt32(f->ReadLine()));
-			worker->GetFood()->SetSatietyStatus(Convert::ToInt32(f->ReadLine()));
-			if (f->ReadLine() == "0") {
-				worker->GetFood()->SetAutoEating(false);
-			}
-			else {
-				worker->GetFood()->SetAutoEating(true);
-				this->autoeatbutton->BackColor = System::Drawing::Color::LimeGreen;
-			}
-			f->Close();
-
-			if (worker->GetClothes()->GetPants() == "Áðþêè") {
-				this->buttonsewup->Text = "Ïî÷èíèòü îäåæäó(10$)";
-			}
-			this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-			this->infoname->Text = worker->GetName();
-			this->infohealthpercent->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
-			this->infosatietypercent->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
-			this->dataGridViewclothes->Rows->Add();
-			this->dataGridViewclothes->Rows->Add();
-			this->dataGridViewclothes->Rows->Add();
-			this->dataGridViewclothes->Rows->Add();
-			this->dataGridViewclothes->Rows[0]->Cells[0]->Value = L"Âåðõ";
-			this->dataGridViewclothes->Rows[1]->Cells[0]->Value = L"Øòàíû";
-			this->dataGridViewclothes->Rows[2]->Cells[0]->Value = L"Îáóâü";
-			this->dataGridViewclothes->Rows[3]->Cells[0]->Value = L"Ñîñòîÿíèå îäåæäû";
-			this->dataGridViewclothes->Rows[0]->Cells[1]->Value = worker->GetClothes()->GetBody();
-			this->dataGridViewclothes->Rows[1]->Cells[1]->Value = worker->GetClothes()->GetPants();
-			this->dataGridViewclothes->Rows[2]->Cells[1]->Value = worker->GetClothes()->GetShoes();
-			this->dataGridViewclothes->Rows[3]->Cells[1]->Value = worker->GetClothes()->GetClothesStatus();
-			this->humanname->Text = worker->GetName();
-			this->humansex->Text = worker->GetSex();
-			this->humanage->Text = Convert::ToString(worker->GetAge());
-			if (worker->GetClothes()->GetShoes() == "Òóôëè") {
-				this->buysuitbutton->Visible = false;
-			}
-			this->mdname->Text = worker->GetName();
-			this->mdweight->Text = Convert::ToString(worker->GetMedCard()->GetWeight());
-			this->mdheight->Text = Convert::ToString(worker->GetMedCard()->GetHeight());
-			this->health->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
-			this->satiety->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
-			this->realtyhouse->Text = worker->GetRealty()->GetHousing();
-			this->realtycar->Text = worker->GetRealty()->GetVehicle();
-			this->workername->Text = worker->GetName();
-			this->Namework->Text = worker->GetNamework();
-			this->payment->Text = Convert::ToString(worker->GetPayment());
-			Double IMT = (worker->GetMedCard()->GetWeight() + 0.0) / (worker->GetMedCard()->GetHeight() * worker->GetMedCard()->GetHeight() / 10000);
-			this->imt->Text = Convert::ToString(IMT);
-			if (IMT < 18.5) {
-				this->imtcomment->Text = "Íèæå íîðìû";
-			}
-			else if (IMT > 26.0) {
-				this->imtcomment->Text = "Âûøå íîðìû";
-			}
-			else {
-				this->imtcomment->Text = "Íîðìà";
-			}
-			
-		}
-		catch (Exception^)
-		{
-			MessageBox::Show("Íå óäàëîñòü çàãðóçèòü ñîõðàíåíèå!", "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			this->Owner->WindowState = FormWindowState::Normal;
-			this->Owner->ShowInTaskbar = true;
-			this->Close();
 		}
 	}
 }
@@ -483,25 +470,13 @@ System::Void ÑourseWorkÑ::Game::boostersbutton_Click(System::Object^ sender, Sys
 	}
 }
 
-System::Void ÑourseWorkÑ::Game::åäàtoolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	this->groupBoxfood->Visible = true;
-	this->groupBoxrealty->Visible = false;
-	this->groupBoxhuman->Visible = false;
-	this->groupBoxworker->Visible = false;
-	this->groupBoxmd->Visible = false;
-	this->groupBoxclothes->Visible = false;
-}
-
 System::Void ÑourseWorkÑ::Game::onefoodbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMoneybalance() >= 5) {
 		worker->GetFood()->UpSatietyStatus(10);
-		this->infosatietypercent->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
-		this->satiety->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
+		SatietyUpdating();
 		worker->ChangeMoney(-5);
-		this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-		this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+		MoneyBalanceUpdating();
 	}
 	else {
 		MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -512,11 +487,9 @@ System::Void ÑourseWorkÑ::Game::twofoodbutton_Click(System::Object^ sender, Syst
 {
 	if (worker->GetMoneybalance() >= 20) {
 		worker->GetFood()->UpSatietyStatus(25);
-		this->infosatietypercent->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
-		this->satiety->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
+		SatietyUpdating();
 		worker->ChangeMoney(-20);
-		this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-		this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+		MoneyBalanceUpdating();
 	}
 	else {
 		MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -527,11 +500,9 @@ System::Void ÑourseWorkÑ::Game::threebutton_Click(System::Object^ sender, System
 {
 	if (worker->GetMoneybalance() >= 100) {
 		worker->GetFood()->UpSatietyStatus(100);
-		this->infosatietypercent->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
-		this->satiety->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
+		SatietyUpdating();
 		worker->ChangeMoney(-100);
-		this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
-		this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
+		MoneyBalanceUpdating();
 	}
 	else {
 		MessageBox::Show("Íåäîñòàòî÷êî äåíåã!", "Óïñ!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -546,6 +517,9 @@ System::Void ÑourseWorkÑ::Game::autoeatbutton_Click(System::Object^ sender, Syst
 			if (result == System::Windows::Forms::DialogResult::Yes) {
 				this->autoeatbutton->BackColor = System::Drawing::Color::LimeGreen;
 				worker->GetFood()->SetAutoEating(true);
+				worker->ChangeMoney(-500000);
+				SatietyUpdating();
+				MoneyBalanceUpdating();
 			}
 		}
 		else {
@@ -562,6 +536,8 @@ System::Void ÑourseWorkÑ::Game::autosewupbutton_Click(System::Object^ sender, Sy
 			if (result == System::Windows::Forms::DialogResult::Yes) {
 				this->autosewupbutton->BackColor = System::Drawing::Color::LimeGreen;
 				worker->GetClothes()->SetAutoSewUp(true);
+				worker->ChangeMoney(-1000000);
+				MoneyBalanceUpdating();
 			}
 		}
 		else {
@@ -578,6 +554,9 @@ System::Void ÑourseWorkÑ::Game::autohealthbutton_Click(System::Object^ sender, S
 			if (result == System::Windows::Forms::DialogResult::Yes) {
 				this->autohealthbutton->BackColor = System::Drawing::Color::LimeGreen;
 				worker->GetMedCard()->SetInfinityHealth(true);
+				worker->ChangeMoney(-1500000);
+				MoneyBalanceUpdating();
+				HealthUpdating();
 			}
 		}
 		else {

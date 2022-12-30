@@ -1537,11 +1537,15 @@ namespace —ourseWork— {
 
 		}
 #pragma endregion
+	private: System::Void DataInitialization();
+	private: System::Void MoneyBalanceUpdating();
+	private: System::Void SatietyUpdating();
 	private: System::Void ÔÂÒÓÌ‡ÊToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Á‰ÓÓ‚¸ÂToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ‡·ÓÚ‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Ó‰ÂÊ‰‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Â‰‡toolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void checkBoxhouse_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void checkBoxcar_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Game_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
@@ -1550,9 +1554,7 @@ namespace —ourseWork— {
 	private: System::Void workingbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void healthbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void buybutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void DataInitialization();
 	private: System::Void boostersbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Â‰‡toolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void onefoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void twofoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void threebutton_Click(System::Object^ sender, System::EventArgs^ e);
