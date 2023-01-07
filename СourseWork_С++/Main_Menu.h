@@ -24,8 +24,8 @@ namespace ÑourseWorkÑ {
 			//
 			//TODO: äîáàâüòå êîä êîíñòðóêòîðà
 			//
-			if (File::Exists("save.txt") == true) {
-				this->GameStartButton->Text = "Èãðàòü";
+			if (File::Exists("save.save") == true) {
+				TextStartButtonSet();
 			}
 		}
 
@@ -152,7 +152,8 @@ namespace ÑourseWorkÑ {
 
 		}
 #pragma endregion
-	private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void TextStartButtonSet();
+private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void AboutGameButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void SaveDeleteButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void GameStartButton_Click(System::Object^ sender, System::EventArgs^ e);

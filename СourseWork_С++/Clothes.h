@@ -24,6 +24,7 @@ public:
 	void SewUpClothes();
 	void TearClothes();
 	void BuySuit();
+	void SetRegularClothes();
 	bool GetAutoSewUp();
 	void SetAutoSewUp(bool argument);
 };

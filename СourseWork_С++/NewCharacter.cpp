@@ -20,7 +20,7 @@ System::Void СourseWorkС::NewCharacter::createbutton_Click(System::Object^ sende
 	else {
 		try
 		{
-			StreamWriter^ f = gcnew StreamWriter("save.txt", false);
+			StreamWriter^ f = gcnew StreamWriter("save.save", false);
 			f->WriteLine(this->textBoxname->Text);
 			if (this->checkBoxman->Checked == true) {
 				f->WriteLine("М");
@@ -29,23 +29,24 @@ System::Void СourseWorkС::NewCharacter::createbutton_Click(System::Object^ sende
 				f->WriteLine("Ж");
 			}
 			f->WriteLine(this->comboBoxage->Text);
-			f->WriteLine(1000); //balance
+			f->WriteLine(1000); //Balance
 			f->WriteLine(this->numericUpDownweight->Text);
 			f->WriteLine(this->numericUpDownheight->Text);
-			f->WriteLine(100); //healthstatus
-			f->WriteLine(0); //infinityhealth
+			f->WriteLine(100); //HealthStatus
+			f->WriteLine(0); //InfinityHealth
 			f->WriteLine("Безработный");
-			f->WriteLine(1500); //payment
-			f->WriteLine("Майка");
-			f->WriteLine("Трусы");
-			f->WriteLine("Тапки"); 
-			f->WriteLine(100); //Статус одежды
-			f->WriteLine(0); //autosewup
-			f->WriteLine("Гараж"); //
+			f->WriteLine(1500); //Payment
+			f->WriteLine("Кофта");
+			f->WriteLine("Джинсы");
+			f->WriteLine("Кроссовки"); 
+			f->WriteLine(100); //ClothesStatus
+			f->WriteLine(0); //AutoSewUp
+			f->WriteLine("Гараж"); 
 			f->WriteLine("Велик");
-			f->WriteLine(0); //уровень
-			f->WriteLine(100); //satietystatus
-			f->WriteLine(0); //autoeating
+			f->WriteLine(0); //Level
+			f->WriteLine(100); //SatietyStatus
+			f->WriteLine(0); //AutoEating
+			f->WriteLine(1); //Day
 			f->Close();
 			MessageBox::Show("Персонаж создан!", "Готово!", MessageBoxButtons::OK, MessageBoxIcon::None);
 			this->Owner->WindowState = FormWindowState::Normal;

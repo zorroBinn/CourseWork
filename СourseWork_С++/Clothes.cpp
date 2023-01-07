@@ -2,10 +2,7 @@
 
 Clothes::Clothes()
 {
-    this->Body = "Майка";
-    this->Pants = "Трусы";
-    this->Shoes = "Тапки";
-    this->ClothesStatus = 100;
+    SetRegularClothes();
     this->AutoSewUp = false;
 }
 
@@ -77,6 +74,14 @@ void Clothes::BuySuit()
     this->Body = "Пиджак";
     this->Pants = "Брюки";
     this->Shoes = "Туфли";
+    this->ClothesStatus = 100;
+}
+
+void Clothes::SetRegularClothes()
+{
+    this->Body = "Кофта";
+    this->Pants = "Джинсы";
+    this->Shoes = "Кроссовки";
     this->ClothesStatus = 100;
 }
 

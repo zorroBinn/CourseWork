@@ -17,6 +17,7 @@ namespace —ourseWork— {
 	public ref class Game : public System::Windows::Forms::Form
 	{
 		Worker^ worker;
+		Int32 Day;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ parametr;
 	private: System::Windows::Forms::PictureBox^ picturebox;
 	private: System::Windows::Forms::Label^ imtcomment;
@@ -41,6 +42,8 @@ namespace —ourseWork— {
 	private: System::Windows::Forms::Label^ infosatietypercent;
 	private: System::Windows::Forms::Label^ infopercent1;
 	private: System::Windows::Forms::Label^ labeldollar;
+	private: System::Windows::Forms::Label^ infoday;
+	private: System::Windows::Forms::Label^ infolabelday;
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ cloth;
 
@@ -278,6 +281,8 @@ namespace —ourseWork— {
 			this->autosewupcost = (gcnew System::Windows::Forms::Label());
 			this->autosewupbutton = (gcnew System::Windows::Forms::Button());
 			this->boostersbutton = (gcnew System::Windows::Forms::Button());
+			this->infolabelday = (gcnew System::Windows::Forms::Label());
+			this->infoday = (gcnew System::Windows::Forms::Label());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturebox))->BeginInit();
@@ -388,6 +393,8 @@ namespace —ourseWork— {
 			// Infobox
 			// 
 			this->Infobox->BackColor = System::Drawing::SystemColors::Info;
+			this->Infobox->Controls->Add(this->infoday);
+			this->Infobox->Controls->Add(this->infolabelday);
 			this->Infobox->Controls->Add(this->labeldollar);
 			this->Infobox->Controls->Add(this->infosatietypercent);
 			this->Infobox->Controls->Add(this->infopercent1);
@@ -402,7 +409,7 @@ namespace —ourseWork— {
 			this->Infobox->Margin = System::Windows::Forms::Padding(2);
 			this->Infobox->Name = L"Infobox";
 			this->Infobox->Padding = System::Windows::Forms::Padding(2);
-			this->Infobox->Size = System::Drawing::Size(194, 81);
+			this->Infobox->Size = System::Drawing::Size(194, 96);
 			this->Infobox->TabIndex = 1;
 			this->Infobox->TabStop = false;
 			// 
@@ -510,7 +517,7 @@ namespace —ourseWork— {
 			this->picturebox->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picturebox.Image")));
 			this->picturebox->Location = System::Drawing::Point(130, 0);
 			this->picturebox->Name = L"picturebox";
-			this->picturebox->Size = System::Drawing::Size(64, 91);
+			this->picturebox->Size = System::Drawing::Size(64, 74);
 			this->picturebox->TabIndex = 0;
 			this->picturebox->TabStop = false;
 			// 
@@ -531,7 +538,6 @@ namespace —ourseWork— {
 			this->groupBoxhuman->Size = System::Drawing::Size(256, 364);
 			this->groupBoxhuman->TabIndex = 3;
 			this->groupBoxhuman->TabStop = false;
-			this->groupBoxhuman->Visible = false;
 			// 
 			// humanbalance
 			// 
@@ -1485,6 +1491,28 @@ namespace —ourseWork— {
 			this->boostersbutton->UseVisualStyleBackColor = false;
 			this->boostersbutton->Click += gcnew System::EventHandler(this, &Game::boostersbutton_Click);
 			// 
+			// infolabelday
+			// 
+			this->infolabelday->AutoSize = true;
+			this->infolabelday->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infolabelday->Location = System::Drawing::Point(-3, 76);
+			this->infolabelday->Name = L"infolabelday";
+			this->infolabelday->Size = System::Drawing::Size(43, 17);
+			this->infolabelday->TabIndex = 28;
+			this->infolabelday->Text = L"ƒÂÌ¸";
+			// 
+			// infoday
+			// 
+			this->infoday->AutoSize = true;
+			this->infoday->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infoday->Location = System::Drawing::Point(46, 76);
+			this->infoday->Name = L"infoday";
+			this->infoday->Size = System::Drawing::Size(16, 17);
+			this->infoday->TabIndex = 29;
+			this->infoday->Text = L"1";
+			// 
 			// Game
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1540,6 +1568,10 @@ namespace —ourseWork— {
 	private: System::Void DataInitialization();
 	private: System::Void MoneyBalanceUpdating();
 	private: System::Void SatietyUpdating();
+	private: System::Void HealthUpdating();
+	private: System::Void LevelUp();
+	private: System::Void GameSave();
+	private: System::Void GameLoss();
 	private: System::Void ÔÂÒÓÌ‡ÊToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Á‰ÓÓ‚¸ÂToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);

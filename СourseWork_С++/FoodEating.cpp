@@ -14,6 +14,9 @@ bool FoodEating::GetAutoEating()
 void FoodEating::SetAutoEating(bool argument)
 {
     this->AutoEating = argument;
+    if (this->AutoEating == true) {
+        this->SatietyStatus = 100;
+    }
 }
 
 Int32 FoodEating::GetSatietyStatus()

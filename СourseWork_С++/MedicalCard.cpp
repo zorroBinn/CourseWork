@@ -25,7 +25,6 @@ Int32 MedicalCard::GetHeight()
 
 void MedicalCard::SetHeight(Int32 height)
 {
-
     this->Height = height;
 }
 

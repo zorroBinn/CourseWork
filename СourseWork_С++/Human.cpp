@@ -72,6 +72,9 @@ void Human::LevelUp()
 void Human::ChangeMoney(Int32 money)
 {
     this->Moneybalance += money;
+    if (this->Moneybalance < 0) {
+        this->Moneybalance = 0;
+    }
 }
 
 MedicalCard^ Human::GetMedCard()
