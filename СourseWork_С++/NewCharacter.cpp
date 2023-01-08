@@ -1,4 +1,5 @@
 #include "NewCharacter.h"
+using System::Char;
 
 System::Void ÑourseWorkÑ::NewCharacter::checkBoxman_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
 {
@@ -14,7 +15,7 @@ System::Void ÑourseWorkÑ::NewCharacter::checkBoxwoman_CheckedChanged(System::Obj
 
 System::Void ÑourseWorkÑ::NewCharacter::createbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (this->textBoxname->Text == L"" || (this->checkBoxman->Checked == false && this->checkBoxwoman->Checked == false) || this->comboBoxage->Text == L"" || this->numericUpDownheight->Text == L"" || this->numericUpDownweight->Text == L"") {
+	if (this->textBoxname->Text == "" || (this->checkBoxman->Checked == false && this->checkBoxwoman->Checked == false) || this->comboBoxage->Text == "" || this->numericUpDownheight->Text == "" || this->numericUpDownweight->Text == "") {
 		MessageBox::Show("Íå âñå ïîëÿ çàïîëíåíû!", "Îøèáêà!", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 	else {
@@ -29,13 +30,13 @@ System::Void ÑourseWorkÑ::NewCharacter::createbutton_Click(System::Object^ sende
 				f->WriteLine("Æ");
 			}
 			f->WriteLine(this->comboBoxage->Text);
-			f->WriteLine(1000); //Balance
+			f->WriteLine(100); //Balance
 			f->WriteLine(this->numericUpDownweight->Text);
 			f->WriteLine(this->numericUpDownheight->Text);
 			f->WriteLine(100); //HealthStatus
 			f->WriteLine(0); //InfinityHealth
-			f->WriteLine("Áåçğàáîòíûé");
-			f->WriteLine(1500); //Payment
+			f->WriteLine("Ğàçäà÷à ëèñòîâîê");
+			f->WriteLine(6); //Payment
 			f->WriteLine("Êîôòà");
 			f->WriteLine("Äæèíñû");
 			f->WriteLine("Êğîññîâêè"); 
@@ -64,4 +65,15 @@ System::Void ÑourseWorkÑ::NewCharacter::NewCharacter_FormClosed(System::Object^ 
 {
 	this->Owner->WindowState = FormWindowState::Normal;
 	this->Owner->ShowInTaskbar = true;
+}
+
+System::Void ÑourseWorkÑ::NewCharacter::textBoxname_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+	Char ch = e->KeyChar;
+	if (ch.IsLetter(ch) || ch.IsControl(ch)) {
+		return;
+	}
+	else {
+		e->Handled = true;
+	}
 }

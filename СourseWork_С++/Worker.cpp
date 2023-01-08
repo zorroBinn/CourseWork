@@ -2,8 +2,8 @@
 
 Worker::Worker() : Human()
 {
-    this->Namework = "Безработный";
-    this->Payment = 1500;
+    this->Namework = "Раздача листовок";
+    this->Payment = 6;
 }
 
 Int32 Worker::GetPayment()

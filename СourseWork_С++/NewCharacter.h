@@ -122,6 +122,7 @@ namespace ÑourseWorkÑ {
 			this->textBoxname->Size = System::Drawing::Size(169, 29);
 			this->textBoxname->TabIndex = 2;
 			this->textBoxname->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBoxname->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &NewCharacter::textBoxname_KeyPress);
 			// 
 			// labelsex
 			// 
@@ -237,13 +238,13 @@ namespace ÑourseWorkÑ {
 			this->comboBoxage->Font = (gcnew System::Drawing::Font(L"Franklin Gothic Medium", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->comboBoxage->FormattingEnabled = true;
-			this->comboBoxage->Items->AddRange(gcnew cli::array< System::Object^  >(53) {
+			this->comboBoxage->Items->AddRange(gcnew cli::array< System::Object^  >(33) {
 				L"18", L"19", L"20", L"21", L"22", L"23", L"24",
 					L"25", L"26", L"27", L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42",
-					L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59", L"60",
-					L"61", L"62", L"63", L"64", L"65", L"66", L"67", L"68", L"69", L"70"
+					L"43", L"44", L"45", L"46", L"47", L"48", L"49", L"50"
 			});
 			this->comboBoxage->Location = System::Drawing::Point(148, 221);
+			this->comboBoxage->MaxDropDownItems = 6;
 			this->comboBoxage->MaxLength = 2;
 			this->comboBoxage->Name = L"comboBoxage";
 			this->comboBoxage->Size = System::Drawing::Size(68, 28);
@@ -287,5 +288,6 @@ private: System::Void checkBoxman_CheckedChanged(System::Object^ sender, System:
 private: System::Void checkBoxwoman_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void createbutton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void NewCharacter_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
+private: System::Void textBoxname_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 };
 }

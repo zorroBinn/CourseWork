@@ -106,6 +106,19 @@ System::Void СourseWorkС::Game::DataInitialization()
 	}
 }
 
+System::Void СourseWorkС::Game::DayUpdating()
+{
+	this->Day++;
+	this->infoday->Text = Convert::ToString(Day);
+	if (Day >= 365 && Day % 365 == 0) {
+		MessageBox::Show("Сегодня ваш день рождения!\nПримите в подарок эту скромную сумму:\n+10 000$", "Поздравляем!", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		worker->ChangeMoney(10000);
+		MoneyBalanceUpdating();
+		worker->SetAge(worker->GetAge()+1);
+		this->humanage->Text = Convert::ToString(worker->GetAge());
+	}
+}
+
 System::Void СourseWorkС::Game::MoneyBalanceUpdating()
 {
 	this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
@@ -125,6 +138,52 @@ System::Void СourseWorkС::Game::HealthUpdating()
 }
 
 System::Void СourseWorkС::Game::LevelUp()
+{
+	if (worker->GetMoneybalance() > 1000000 && worker->GetLevel() < 7) {
+		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		worker->SetNamework("Магнат");
+		worker->SetPayment(10000);
+		LevelUp();
+	}
+	if (worker->GetMoneybalance() > 500000 && worker->GetLevel() < 6) {
+		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		worker->SetNamework("Глава франшизы");
+		worker->SetPayment(2000);
+		LevelUp();
+	}
+	if (worker->GetMoneybalance() > 100000 && worker->GetLevel() < 5) {
+		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		worker->SetNamework("Бизнесмен");
+		worker->SetPayment(600);
+		LevelUp();
+	}
+	if (worker->GetMoneybalance() > 50000 && worker->GetLevel() < 4) {
+		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		worker->SetNamework("Директор магазина");
+		worker->SetPayment(250);
+		LevelUp();
+	}
+	if (worker->GetMoneybalance() > 10000 && worker->GetLevel() < 3) {
+		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		worker->SetNamework("Заведующий");
+		worker->SetPayment(120);
+		LevelUp();
+	}
+	if (worker->GetMoneybalance() > 5000 && worker->GetLevel() < 2) {
+		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		worker->SetNamework("Глава отдела");
+		worker->SetPayment(40);
+		LevelUp();
+	}
+	if (worker->GetMoneybalance() > 1000 && worker->GetLevel() < 1) {
+		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		worker->SetNamework("Кассир");
+		worker->SetPayment(15);
+		LevelUp();
+	}
+}
+
+System::Void СourseWorkС::Game::UpdatingLevelUp()
 {
 	worker->LevelUp();
 	this->Namework->Text = worker->GetNamework();
@@ -212,9 +271,6 @@ System::Void СourseWorkС::Game::GameLoss()
 	}
 	if (lossrate == true) {
 		MessageBox::Show("Результат:\nДостигнутый день: " + Day, "Игра окончена", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		GameSave();
-		this->Owner->WindowState = FormWindowState::Normal;
-		this->Owner->ShowInTaskbar = true;
 	}
 }
 
@@ -376,8 +432,7 @@ System::Void СourseWorkС::Game::workingbutton_Click(System::Object^ sender, Syst
 	if (worker->GetMedCard()->GetHealthStatus() > 0 && worker->GetClothes()->GetClothesStatus() > 0 && worker->GetFood()->GetSatietyStatus() > 0) {
 		worker->ChangeMoney(worker->GetPayment());
 		MoneyBalanceUpdating();
-		Day++;
-		this->infoday->Text = Convert::ToString(Day);
+		DayUpdating();
 		if (worker->GetClothes()->GetAutoSewUp() != true) {
 			worker->GetClothes()->TearClothes();
 			this->dataGridViewclothes->Rows[3]->Cells[1]->Value = worker->GetClothes()->GetClothesStatus();
@@ -390,30 +445,7 @@ System::Void СourseWorkС::Game::workingbutton_Click(System::Object^ sender, Syst
 			worker->GetFood()->DownSatietyStatus();
 			SatietyUpdating();
 		}
-		if (worker->GetMoneybalance() > 100000000 && worker->GetLevel() < 4) {
-			MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			worker->SetNamework("Магнат");
-			worker->SetPayment(900000);
-			LevelUp();
-		}
-		if (worker->GetMoneybalance() > 10000000 && worker->GetLevel() < 3) {
-			MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			worker->SetNamework("Бизнесмен");
-			worker->SetPayment(185000);
-			LevelUp();
-		}
-		if (worker->GetMoneybalance() > 1000000 && worker->GetLevel() < 2) {
-			MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			worker->SetNamework("Глава отдела");
-			worker->SetPayment(70000);
-			LevelUp();
-		}
-		if (worker->GetMoneybalance() > 100000 && worker->GetLevel() < 1) {
-			MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			worker->SetNamework("Кассир");
-			worker->SetPayment(13000);
-			LevelUp();
-		}
+		LevelUp();
 	}
 	else {
 		MessageBox::Show("Сейчас вы не можете работать!\nПроверьте состояние здоровья,\n состояние одежды или сытость", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -584,12 +616,12 @@ System::Void СourseWorkС::Game::threebutton_Click(System::Object^ sender, System
 System::Void СourseWorkС::Game::autoeatbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetFood()->GetAutoEating() == false) {
-		if (worker->GetMoneybalance() >= 500000) {
+		if (worker->GetMoneybalance() >= 50000) {
 			System::Windows::Forms::DialogResult result = MessageBox::Show("Автоматическое восполнение сытости позволяет вам больше не беспокоиться о кормлении своего персонажа. Это действие нельзя будет отменить!", "Хотите приобрести антиголод?", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
 			if (result == System::Windows::Forms::DialogResult::Yes) {
 				this->autoeatbutton->BackColor = System::Drawing::Color::LimeGreen;
 				worker->GetFood()->SetAutoEating(true);
-				worker->ChangeMoney(-500000);
+				worker->ChangeMoney(-50000);
 				SatietyUpdating();
 				MoneyBalanceUpdating();
 				GameLoss();
@@ -604,13 +636,13 @@ System::Void СourseWorkС::Game::autoeatbutton_Click(System::Object^ sender, Syst
 System::Void СourseWorkС::Game::autosewupbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetClothes()->GetAutoSewUp() == false) {
-		if (worker->GetMoneybalance() >= 1000000) {
+		if (worker->GetMoneybalance() >= 100000) {
 			System::Windows::Forms::DialogResult result = MessageBox::Show("Автоматическое починка одежды позволяет вам больше не беспокоиться о состоянии одежды своего персонажа. Это действие нельзя будет отменить!", "Хотите приобрести автопочинку одежды?", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
 			if (result == System::Windows::Forms::DialogResult::Yes) {
 				this->autosewupbutton->BackColor = System::Drawing::Color::LimeGreen;
 				worker->GetClothes()->SetAutoSewUp(true);
 				this->dataGridViewclothes->Rows[3]->Cells[1]->Value = worker->GetClothes()->GetClothesStatus();
-				worker->ChangeMoney(-1000000);
+				worker->ChangeMoney(-100000);
 				MoneyBalanceUpdating();
 				GameLoss();
 			}
@@ -624,12 +656,12 @@ System::Void СourseWorkС::Game::autosewupbutton_Click(System::Object^ sender, Sy
 System::Void СourseWorkС::Game::autohealthbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMedCard()->GetInfinityHealth() == false) {
-		if (worker->GetMoneybalance() >= 1500000) {
+		if (worker->GetMoneybalance() >= 150000) {
 			System::Windows::Forms::DialogResult result = MessageBox::Show("Автоматическое лечение позволяет вам больше не беспокоиться о состоянии здоровья своего персонажа. Это действие нельзя будет отменить!", "Хотите приобрести автолечение?", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
 			if (result == System::Windows::Forms::DialogResult::Yes) {
 				this->autohealthbutton->BackColor = System::Drawing::Color::LimeGreen;
 				worker->GetMedCard()->SetInfinityHealth(true);
-				worker->ChangeMoney(-1500000);
+				worker->ChangeMoney(-150000);
 				MoneyBalanceUpdating();
 				HealthUpdating();
 				GameLoss();

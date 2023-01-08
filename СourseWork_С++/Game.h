@@ -202,6 +202,8 @@ namespace ÑourseWorkÑ {
 			this->åäàtoolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îäåæäàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Infobox = (gcnew System::Windows::Forms::GroupBox());
+			this->infoday = (gcnew System::Windows::Forms::Label());
+			this->infolabelday = (gcnew System::Windows::Forms::Label());
 			this->labeldollar = (gcnew System::Windows::Forms::Label());
 			this->infosatietypercent = (gcnew System::Windows::Forms::Label());
 			this->infopercent1 = (gcnew System::Windows::Forms::Label());
@@ -281,8 +283,6 @@ namespace ÑourseWorkÑ {
 			this->autosewupcost = (gcnew System::Windows::Forms::Label());
 			this->autosewupbutton = (gcnew System::Windows::Forms::Button());
 			this->boostersbutton = (gcnew System::Windows::Forms::Button());
-			this->infolabelday = (gcnew System::Windows::Forms::Label());
-			this->infoday = (gcnew System::Windows::Forms::Label());
 			this->menu->SuspendLayout();
 			this->Infobox->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picturebox))->BeginInit();
@@ -412,6 +412,28 @@ namespace ÑourseWorkÑ {
 			this->Infobox->Size = System::Drawing::Size(194, 96);
 			this->Infobox->TabIndex = 1;
 			this->Infobox->TabStop = false;
+			// 
+			// infoday
+			// 
+			this->infoday->AutoSize = true;
+			this->infoday->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infoday->Location = System::Drawing::Point(46, 76);
+			this->infoday->Name = L"infoday";
+			this->infoday->Size = System::Drawing::Size(16, 17);
+			this->infoday->TabIndex = 29;
+			this->infoday->Text = L"1";
+			// 
+			// infolabelday
+			// 
+			this->infolabelday->AutoSize = true;
+			this->infolabelday->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->infolabelday->Location = System::Drawing::Point(-3, 76);
+			this->infolabelday->Name = L"infolabelday";
+			this->infolabelday->Size = System::Drawing::Size(43, 17);
+			this->infolabelday->TabIndex = 28;
+			this->infolabelday->Text = L"Äåíü";
 			// 
 			// labeldollar
 			// 
@@ -1399,11 +1421,11 @@ namespace ÑourseWorkÑ {
 			this->autoeat->AutoSize = true;
 			this->autoeat->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->autoeat->Location = System::Drawing::Point(48, 62);
+			this->autoeat->Location = System::Drawing::Point(56, 62);
 			this->autoeat->Name = L"autoeat";
-			this->autoeat->Size = System::Drawing::Size(69, 19);
+			this->autoeat->Size = System::Drawing::Size(61, 19);
 			this->autoeat->TabIndex = 25;
-			this->autoeat->Text = L"500 000$";
+			this->autoeat->Text = L"50 000$";
 			// 
 			// autoeatbutton
 			// 
@@ -1426,11 +1448,11 @@ namespace ÑourseWorkÑ {
 			this->autohealthcost->AutoSize = true;
 			this->autohealthcost->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->autohealthcost->Location = System::Drawing::Point(36, 216);
+			this->autohealthcost->Location = System::Drawing::Point(48, 216);
 			this->autohealthcost->Name = L"autohealthcost";
-			this->autohealthcost->Size = System::Drawing::Size(81, 19);
+			this->autohealthcost->Size = System::Drawing::Size(69, 19);
 			this->autohealthcost->TabIndex = 23;
-			this->autohealthcost->Text = L"1 500 000$";
+			this->autohealthcost->Text = L"150 000$";
 			// 
 			// autohealthbutton
 			// 
@@ -1453,11 +1475,11 @@ namespace ÑourseWorkÑ {
 			this->autosewupcost->AutoSize = true;
 			this->autosewupcost->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->autosewupcost->Location = System::Drawing::Point(36, 139);
+			this->autosewupcost->Location = System::Drawing::Point(48, 139);
 			this->autosewupcost->Name = L"autosewupcost";
-			this->autosewupcost->Size = System::Drawing::Size(81, 19);
+			this->autosewupcost->Size = System::Drawing::Size(69, 19);
 			this->autosewupcost->TabIndex = 21;
-			this->autosewupcost->Text = L"1 000 000$";
+			this->autosewupcost->Text = L"100 000$";
 			// 
 			// autosewupbutton
 			// 
@@ -1490,28 +1512,6 @@ namespace ÑourseWorkÑ {
 			this->boostersbutton->Text = L"Áóñòåðû";
 			this->boostersbutton->UseVisualStyleBackColor = false;
 			this->boostersbutton->Click += gcnew System::EventHandler(this, &Game::boostersbutton_Click);
-			// 
-			// infolabelday
-			// 
-			this->infolabelday->AutoSize = true;
-			this->infolabelday->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->infolabelday->Location = System::Drawing::Point(-3, 76);
-			this->infolabelday->Name = L"infolabelday";
-			this->infolabelday->Size = System::Drawing::Size(43, 17);
-			this->infolabelday->TabIndex = 28;
-			this->infolabelday->Text = L"Äåíü";
-			// 
-			// infoday
-			// 
-			this->infoday->AutoSize = true;
-			this->infoday->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->infoday->Location = System::Drawing::Point(46, 76);
-			this->infoday->Name = L"infoday";
-			this->infoday->Size = System::Drawing::Size(16, 17);
-			this->infoday->TabIndex = 29;
-			this->infoday->Text = L"1";
 			// 
 			// Game
 			// 
@@ -1566,10 +1566,12 @@ namespace ÑourseWorkÑ {
 		}
 #pragma endregion
 	private: System::Void DataInitialization();
+	private: System::Void DayUpdating();
 	private: System::Void MoneyBalanceUpdating();
 	private: System::Void SatietyUpdating();
 	private: System::Void HealthUpdating();
 	private: System::Void LevelUp();
+	private: System::Void UpdatingLevelUp();
 	private: System::Void GameSave();
 	private: System::Void GameLoss();
 	private: System::Void ïåðñîíàæToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);

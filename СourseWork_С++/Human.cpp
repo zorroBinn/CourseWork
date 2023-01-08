@@ -5,7 +5,7 @@ Human::Human()
 {
     this->Age = 0;
     this->Name = "test";
-    this->Moneybalance = 1000;
+    this->Moneybalance = 100;
     this->Sex = "test";
     this->Level = 0;
     this->MedCard = gcnew MedicalCard();
