@@ -88,6 +88,7 @@ System::Void СourseWorkС::Game::DataInitialization()
 				this->imtcomment->Text = "Норма";
 			}
 			this->realtyhouse->Text = worker->GetRealty()->GetHousing();
+			RealtyInitialization();
 			this->realtycar->Text = worker->GetRealty()->GetVehicle();
 			this->workername->Text = worker->GetName();
 			this->Namework->Text = worker->GetNamework();
@@ -106,13 +107,67 @@ System::Void СourseWorkС::Game::DataInitialization()
 	}
 }
 
+System::Void СourseWorkС::Game::RealtyInitialization()
+{
+	if (worker->GetRealty()->GetHousing() == "Квартира") {
+		this->comboBoxrealtyhouse->Items->Clear();
+		this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+			L"Коттедж (120 000$)", L"Вилла (350 000$)"
+		});
+	}
+	if (worker->GetRealty()->GetHousing() == "Коттедж") {
+		this->comboBoxrealtyhouse->Items->Clear();
+		this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+			L"Квартира (50 000$)", L"Вилла (350 000$)"
+		});
+	}
+	if (worker->GetRealty()->GetHousing() == "Вилла") {
+		this->comboBoxrealtyhouse->Items->Clear();
+		this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+			L"Квартира (50 000$)", L"Коттедж (120 000$)"
+		});
+	}
+	if (worker->GetRealty()->GetVehicle() == "Мотоцикл") {
+		this->comboBoxrealtycar->Items->Clear();
+		this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+			L"Автомобиль (10 000$)", L"Спорткар (150 000$)"
+		});
+	}
+	if (worker->GetRealty()->GetVehicle() == "Автомобиль") {
+		this->comboBoxrealtycar->Items->Clear();
+		this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+			L"Мотоцикл (3 500$)", L"Спорткар (150 000$)"
+		});
+	}
+	if (worker->GetRealty()->GetVehicle() == "Спорткар") {
+		this->comboBoxrealtycar->Items->Clear();
+		this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+			L"Мотоцикл (3 500$)", L"Автомобиль (10 000$)"
+		});
+	}
+}
+
 System::Void СourseWorkС::Game::DayUpdating()
 {
 	this->Day++;
 	this->infoday->Text = Convert::ToString(Day);
 	if (Day >= 365 && Day % 365 == 0) {
-		MessageBox::Show("Сегодня ваш день рождения!\nПримите в подарок эту скромную сумму:\n+10 000$", "Поздравляем!", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		worker->ChangeMoney(10000);
+		if (worker->GetLevel() == 0) {
+			MessageBox::Show("Сегодня ваш день рождения!\nПримите в подарок эту скромную сумму:\n+1 000$", "Поздравляем!", MessageBoxButtons::OK, MessageBoxIcon::None);
+			worker->ChangeMoney(1000);
+		}
+		else if (worker->GetLevel() == 1) {
+			MessageBox::Show("Сегодня ваш день рождения!\nПримите в подарок эту скромную сумму:\n+5 000$", "Поздравляем!", MessageBoxButtons::OK, MessageBoxIcon::None);
+			worker->ChangeMoney(5000);
+		}
+		else if (worker->GetLevel() == 2) {
+			MessageBox::Show("Сегодня ваш день рождения!\nПримите в подарок эту скромную сумму:\n+10 000$", "Поздравляем!", MessageBoxButtons::OK, MessageBoxIcon::None);
+			worker->ChangeMoney(10000);
+		}
+		else {
+			MessageBox::Show("Сегодня ваш день рождения!\nПримите в подарок эту скромную сумму:\n+25 000$", "Поздравляем!", MessageBoxButtons::OK, MessageBoxIcon::None);
+			worker->ChangeMoney(25000);
+		}
 		MoneyBalanceUpdating();
 		worker->SetAge(worker->GetAge()+1);
 		this->humanage->Text = Convert::ToString(worker->GetAge());
@@ -143,43 +198,43 @@ System::Void СourseWorkС::Game::LevelUp()
 		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		worker->SetNamework("Магнат");
 		worker->SetPayment(10000);
-		LevelUp();
+		UpdatingLevelUp();
 	}
 	if (worker->GetMoneybalance() > 500000 && worker->GetLevel() < 6) {
 		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		worker->SetNamework("Глава франшизы");
 		worker->SetPayment(2000);
-		LevelUp();
+		UpdatingLevelUp();
 	}
 	if (worker->GetMoneybalance() > 100000 && worker->GetLevel() < 5) {
 		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		worker->SetNamework("Бизнесмен");
 		worker->SetPayment(600);
-		LevelUp();
+		UpdatingLevelUp();
 	}
 	if (worker->GetMoneybalance() > 50000 && worker->GetLevel() < 4) {
 		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		worker->SetNamework("Директор магазина");
 		worker->SetPayment(250);
-		LevelUp();
+		UpdatingLevelUp();
 	}
 	if (worker->GetMoneybalance() > 10000 && worker->GetLevel() < 3) {
 		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		worker->SetNamework("Заведующий");
 		worker->SetPayment(120);
-		LevelUp();
+		UpdatingLevelUp();
 	}
 	if (worker->GetMoneybalance() > 5000 && worker->GetLevel() < 2) {
 		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		worker->SetNamework("Глава отдела");
 		worker->SetPayment(40);
-		LevelUp();
+		UpdatingLevelUp();
 	}
 	if (worker->GetMoneybalance() > 1000 && worker->GetLevel() < 1) {
 		MessageBox::Show("С повышением!", "Ура!", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		worker->SetNamework("Кассир");
 		worker->SetPayment(15);
-		LevelUp();
+		UpdatingLevelUp();
 	}
 }
 
@@ -474,34 +529,49 @@ System::Void СourseWorkС::Game::healthbutton_Click(System::Object^ sender, Syste
 System::Void СourseWorkС::Game::buybutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (this->checkBoxhouse->Checked == true) {
-		if (this->comboBoxrealtyhouse->Text == "Квартира(3 000 000)") {
-			if (worker->GetMoneybalance() >= 3000000) {
-				worker->GetRealty()->SetHousing(this->comboBoxrealtyhouse->Text);
-				worker->ChangeMoney(-3000000);
+		if (this->comboBoxrealtyhouse->Text == "Квартира (50 000$)") {
+			if (worker->GetMoneybalance() >= 50000) {
+				worker->GetRealty()->SetHousing("Квартира");
+				worker->ChangeMoney(-50000);
+				this->comboBoxrealtyhouse->Items->Clear();
+				this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+					L"Коттедж (120 000$)", L"Вилла (350 000$)"
+				});
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
 				MoneyBalanceUpdating();
+				DayUpdating();
 			}
 			else {
 				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 			}
 		}
-		if (this->comboBoxrealtyhouse->Text == "Коттедж(7 000 000)") {
-			if (worker->GetMoneybalance() >= 7000000) {
-				worker->GetRealty()->SetHousing(this->comboBoxrealtyhouse->Text);
-				worker->ChangeMoney(-7000000);
+		if (this->comboBoxrealtyhouse->Text == "Коттедж (120 000$)") {
+			if (worker->GetMoneybalance() >= 120000) {
+				worker->GetRealty()->SetHousing("Коттедж");
+				worker->ChangeMoney(-120000);
+				this->comboBoxrealtyhouse->Items->Clear();
+				this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+					L"Квартира (50 000$)", L"Вилла (350 000$)"
+				});
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
 				MoneyBalanceUpdating();
+				DayUpdating();
 			}
 			else {
 				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 			}
 		}
-		if (this->comboBoxrealtyhouse->Text == "Вилла(20 000 000)") {
-			if (worker->GetMoneybalance() >= 20000000) {
-				worker->GetRealty()->SetHousing(this->comboBoxrealtyhouse->Text);
-				worker->ChangeMoney(-20000000);
+		if (this->comboBoxrealtyhouse->Text == "Вилла (350 000$)") {
+			if (worker->GetMoneybalance() >= 350000) {
+				worker->GetRealty()->SetHousing("Вилла");
+				worker->ChangeMoney(-350000);
+				this->comboBoxrealtyhouse->Items->Clear();
+				this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+					L"Квартира (50 000$)", L"Коттедж (120 000$)"
+				});
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
 				MoneyBalanceUpdating();
+				DayUpdating();
 			}
 			else {
 				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -509,34 +579,49 @@ System::Void СourseWorkС::Game::buybutton_Click(System::Object^ sender, System::
 		}
 	}
 	else {
-		if (this->comboBoxrealtycar->Text == "Мотоцикл(200 000)") {
-			if (worker->GetMoneybalance() >= 200000) {
-				worker->GetRealty()->SetVehicle(this->comboBoxrealtycar->Text);
-				worker->ChangeMoney(-200000);
+		if (this->comboBoxrealtycar->Text == "Мотоцикл (3 500$)") {
+			if (worker->GetMoneybalance() >= 3500) {
+				worker->GetRealty()->SetVehicle("Мотоцикл");
+				worker->ChangeMoney(-3500);
+				this->comboBoxrealtycar->Items->Clear();
+				this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+					L"Автомобиль (10 000$)", L"Спорткар (150 000$)"
+				});
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
 				MoneyBalanceUpdating();
+				DayUpdating();
 			}
 			else {
 				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 			}
 		}
-		if (this->comboBoxrealtycar->Text == "Автомобиль(600 000)") {
-			if (worker->GetMoneybalance() >= 600000) {
-				worker->GetRealty()->SetVehicle(this->comboBoxrealtycar->Text);
-				worker->ChangeMoney(-600000);
+		if (this->comboBoxrealtycar->Text == "Автомобиль (10 000$)") {
+			if (worker->GetMoneybalance() >= 10000) {
+				worker->GetRealty()->SetVehicle("Автомобиль");
+				worker->ChangeMoney(-10000);
+				this->comboBoxrealtycar->Items->Clear();
+				this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+					L"Мотоцикл (3 500$)", L"Спорткар (150 000$)"
+				});
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
 				MoneyBalanceUpdating();
+				DayUpdating();
 			}
 			else {
 				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 			}
 		}
-		if (this->comboBoxrealtycar->Text == "Ламба(9 000 000)") {
-			if (worker->GetMoneybalance() >= 9000000) {
-				worker->GetRealty()->SetVehicle(this->comboBoxrealtycar->Text);
-				worker->ChangeMoney(-9000000);
+		if (this->comboBoxrealtycar->Text == "Спорткар (150 000$)") {
+			if (worker->GetMoneybalance() >= 150000) {
+				worker->GetRealty()->SetVehicle("Спорткар");
+				worker->ChangeMoney(-150000);
+				this->comboBoxrealtycar->Items->Clear();
+				this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
+					L"Мотоцикл (3 500$)", L"Автомобиль (10 000$)"
+				});
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
 				MoneyBalanceUpdating();
+				DayUpdating();
 			}
 			else {
 				MessageBox::Show("Недостаточко денег!", "Упс!", MessageBoxButtons::OK, MessageBoxIcon::Warning);

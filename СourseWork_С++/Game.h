@@ -190,10 +190,10 @@ namespace —ourseWork— {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->‡·ÓÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -1041,30 +1041,30 @@ namespace —ourseWork— {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
 			this->dataGridViewclothes->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewclothes->ColumnHeadersVisible = false;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
 					this->cloth
 			});
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle8;
 			this->dataGridViewclothes->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->dataGridViewclothes->Location = System::Drawing::Point(6, 83);
@@ -1076,8 +1076,8 @@ namespace —ourseWork— {
 			// 
 			// parametr
 			// 
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::White;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::White;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle6;
 			this->parametr->Frozen = true;
 			this->parametr->HeaderText = L"œ‡‡ÏÂÚ";
 			this->parametr->MaxInputLength = 30;
@@ -1088,8 +1088,8 @@ namespace —ourseWork— {
 			// 
 			// cloth
 			// 
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::White;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle7->BackColor = System::Drawing::Color::White;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle7;
 			this->cloth->Frozen = true;
 			this->cloth->HeaderText = L"Œ‰ÂÊ‰‡";
 			this->cloth->MaxInputLength = 30;
@@ -1260,8 +1260,8 @@ namespace —ourseWork— {
 			this->comboBoxrealtycar->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBoxrealtycar->FormattingEnabled = true;
 			this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L"ÃÓÚÓˆËÍÎ(200 000)", L"¿‚ÚÓÏÓ·ËÎ¸(600 000)",
-					L"À‡Ï·‡(9 000 000)"
+				L"ÃÓÚÓˆËÍÎ (3 500$)", L"¿‚ÚÓÏÓ·ËÎ¸ (10 000$)",
+					L"—ÔÓÚÍ‡ (150 000$)"
 			});
 			this->comboBoxrealtycar->Location = System::Drawing::Point(18, 226);
 			this->comboBoxrealtycar->Name = L"comboBoxrealtycar";
@@ -1300,8 +1300,8 @@ namespace —ourseWork— {
 			this->comboBoxrealtyhouse->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBoxrealtyhouse->FormattingEnabled = true;
 			this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L" ‚‡ÚË‡(3 000 000)", L" ÓÚÚÂ‰Ê(7 000 000)",
-					L"¬ËÎÎ‡(20 000 000)"
+				L" ‚‡ÚË‡ (50 000$)", L" ÓÚÚÂ‰Ê (120 000$)",
+					L"¬ËÎÎ‡ (350 000$)"
 			});
 			this->comboBoxrealtyhouse->Location = System::Drawing::Point(18, 226);
 			this->comboBoxrealtyhouse->Name = L"comboBoxrealtyhouse";
@@ -1566,6 +1566,7 @@ namespace —ourseWork— {
 		}
 #pragma endregion
 	private: System::Void DataInitialization();
+	private: System::Void RealtyInitialization();
 	private: System::Void DayUpdating();
 	private: System::Void MoneyBalanceUpdating();
 	private: System::Void SatietyUpdating();
