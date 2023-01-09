@@ -49,7 +49,7 @@ void Clothes::SetClothesStatus(Int32 status)
 void Clothes::SewUpClothes()
 {
     if (this->ClothesStatus < 100) {
-        this->ClothesStatus += 15;
+        this->ClothesStatus += 20;
         if (this->ClothesStatus > 100) {
             this->ClothesStatus = 100;
         }
@@ -59,7 +59,7 @@ void Clothes::SewUpClothes()
 void Clothes::TearClothes()
 {
     if (this->Pants != "Áðþêè") {
-        this->ClothesStatus -= 7;
+        this->ClothesStatus -= 5;
     }
     else {
         this->ClothesStatus -= 3;

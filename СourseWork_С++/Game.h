@@ -190,10 +190,10 @@ namespace —ourseWork— {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Game::typeid));
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->menu = (gcnew System::Windows::Forms::MenuStrip());
 			this->‡·ÓÚ‡ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -911,6 +911,7 @@ namespace —ourseWork— {
 			this->healthbutton->Text = L"ÀÂ˜ËÚ¸Òˇ(10$)";
 			this->healthbutton->UseVisualStyleBackColor = false;
 			this->healthbutton->Click += gcnew System::EventHandler(this, &Game::healthbutton_Click);
+			this->healthbutton->MouseHover += gcnew System::EventHandler(this, &Game::healthbutton_MouseHover);
 			// 
 			// mdheight
 			// 
@@ -1030,6 +1031,7 @@ namespace —ourseWork— {
 			this->buysuitbutton->Text = L" ÛÔËÚ¸ ÍÓÒÚ˛Ï(5000$)";
 			this->buysuitbutton->UseVisualStyleBackColor = false;
 			this->buysuitbutton->Click += gcnew System::EventHandler(this, &Game::buysuitbutton_Click);
+			this->buysuitbutton->MouseHover += gcnew System::EventHandler(this, &Game::buysuitbutton_MouseHover);
 			// 
 			// dataGridViewclothes
 			// 
@@ -1041,30 +1043,30 @@ namespace —ourseWork— {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridViewclothes->BackgroundColor = System::Drawing::Color::NavajoWhite;
 			this->dataGridViewclothes->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle5->BackColor = System::Drawing::Color::Cornsilk;
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Cornsilk;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridViewclothes->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridViewclothes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridViewclothes->ColumnHeadersVisible = false;
 			this->dataGridViewclothes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->parametr,
 					this->cloth
 			});
-			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
-			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::TopCenter;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewclothes->DefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridViewclothes->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->dataGridViewclothes->Location = System::Drawing::Point(6, 83);
@@ -1076,8 +1078,8 @@ namespace —ourseWork— {
 			// 
 			// parametr
 			// 
-			dataGridViewCellStyle6->BackColor = System::Drawing::Color::White;
-			this->parametr->DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::White;
+			this->parametr->DefaultCellStyle = dataGridViewCellStyle2;
 			this->parametr->Frozen = true;
 			this->parametr->HeaderText = L"œ‡‡ÏÂÚ";
 			this->parametr->MaxInputLength = 30;
@@ -1088,8 +1090,8 @@ namespace —ourseWork— {
 			// 
 			// cloth
 			// 
-			dataGridViewCellStyle7->BackColor = System::Drawing::Color::White;
-			this->cloth->DefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::White;
+			this->cloth->DefaultCellStyle = dataGridViewCellStyle3;
 			this->cloth->Frozen = true;
 			this->cloth->HeaderText = L"Œ‰ÂÊ‰‡";
 			this->cloth->MaxInputLength = 30;
@@ -1113,6 +1115,7 @@ namespace —ourseWork— {
 			this->buttonsewup->Text = L"œÓ˜ËÌËÚ¸ Ó‰ÂÊ‰Û(5$)";
 			this->buttonsewup->UseVisualStyleBackColor = false;
 			this->buttonsewup->Click += gcnew System::EventHandler(this, &Game::buttonsewup_Click);
+			this->buttonsewup->MouseHover += gcnew System::EventHandler(this, &Game::buttonsewup_MouseHover);
 			// 
 			// labelclothes
 			// 
@@ -1157,6 +1160,7 @@ namespace —ourseWork— {
 			this->threebutton->Text = L"–ÂÒÚÓ‡Ì  (100$)";
 			this->threebutton->UseVisualStyleBackColor = false;
 			this->threebutton->Click += gcnew System::EventHandler(this, &Game::threebutton_Click);
+			this->threebutton->MouseHover += gcnew System::EventHandler(this, &Game::threebutton_MouseHover);
 			// 
 			// twofoodbutton
 			// 
@@ -1173,6 +1177,7 @@ namespace —ourseWork— {
 			this->twofoodbutton->Text = L" ‡ÙÂ (20$)";
 			this->twofoodbutton->UseVisualStyleBackColor = false;
 			this->twofoodbutton->Click += gcnew System::EventHandler(this, &Game::twofoodbutton_Click);
+			this->twofoodbutton->MouseHover += gcnew System::EventHandler(this, &Game::twofoodbutton_MouseHover);
 			// 
 			// onefoodbutton
 			// 
@@ -1189,6 +1194,7 @@ namespace —ourseWork— {
 			this->onefoodbutton->Text = L"‘‡ÒÚ-‘Û‰ (5$)";
 			this->onefoodbutton->UseVisualStyleBackColor = false;
 			this->onefoodbutton->Click += gcnew System::EventHandler(this, &Game::onefoodbutton_Click);
+			this->onefoodbutton->MouseHover += gcnew System::EventHandler(this, &Game::onefoodbutton_MouseHover);
 			// 
 			// satiety
 			// 
@@ -1452,7 +1458,7 @@ namespace —ourseWork— {
 			this->autohealthcost->Name = L"autohealthcost";
 			this->autohealthcost->Size = System::Drawing::Size(69, 19);
 			this->autohealthcost->TabIndex = 23;
-			this->autohealthcost->Text = L"150 000$";
+			this->autohealthcost->Text = L"100 000$";
 			// 
 			// autohealthbutton
 			// 
@@ -1574,7 +1580,7 @@ namespace —ourseWork— {
 	private: System::Void LevelUp();
 	private: System::Void UpdatingLevelUp();
 	private: System::Void GameSave();
-	private: System::Void GameLoss();
+	private: System::Boolean GameLoss();
 	private: System::Void ÔÂÒÓÌ‡ÊToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Á‰ÓÓ‚¸ÂToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void ËÏÛ˘ÂÒÚ‚ÓToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
@@ -1596,5 +1602,12 @@ namespace —ourseWork— {
 	private: System::Void autoeatbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void autosewupbutton_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void autohealthbutton_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void ToolTipShow(System::Windows::Forms::Button^ buttonname, String^ text);
+	private: System::Void onefoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void twofoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void threebutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void healthbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void buttonsewup_MouseHover(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void buysuitbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
 };
 }

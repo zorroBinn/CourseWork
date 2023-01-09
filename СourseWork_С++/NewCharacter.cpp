@@ -36,7 +36,7 @@ System::Void СourseWorkС::NewCharacter::createbutton_Click(System::Object^ sende
 			f->WriteLine(100); //HealthStatus
 			f->WriteLine(0); //InfinityHealth
 			f->WriteLine("Раздача листовок");
-			f->WriteLine(6); //Payment
+			f->WriteLine(10); //Payment
 			f->WriteLine("Кофта");
 			f->WriteLine("Джинсы");
 			f->WriteLine("Кроссовки"); 

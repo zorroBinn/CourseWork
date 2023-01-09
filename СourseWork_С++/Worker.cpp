@@ -3,7 +3,7 @@
 Worker::Worker() : Human()
 {
     this->Namework = "Раздача листовок";
-    this->Payment = 6;
+    this->Payment = 10;
 }
 
 Int32 Worker::GetPayment()

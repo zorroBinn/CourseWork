@@ -51,7 +51,7 @@ void MedicalCard::DownStatus()
 void MedicalCard::UpStatus()
 {
     if (this->HealthStatus < 100) {
-        this->HealthStatus += 30;
+        this->HealthStatus += 35;
         if (this->HealthStatus > 100) {
             this->HealthStatus = 100;
         }
