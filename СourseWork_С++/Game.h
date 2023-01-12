@@ -1544,7 +1544,7 @@ namespace ÑourseWorkÑ {
 			this->MinimumSize = System::Drawing::Size(771, 564);
 			this->Name = L"Game";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Ãëàâíîå ìåíþ";
+			this->Text = L"Èãðà";
 			this->TopMost = true;
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Game::Game_FormClosing);
 			this->menu->ResumeLayout(false);

@@ -50,8 +50,6 @@ System::Void СourseWorkС::NewCharacter::createbutton_Click(System::Object^ sende
 			f->WriteLine(1); //Day
 			f->Close();
 			MessageBox::Show("Персонаж создан!", "Готово!", MessageBoxButtons::OK, MessageBoxIcon::None);
-			this->Owner->WindowState = FormWindowState::Normal;
-			this->Owner->ShowInTaskbar = true;
 			this->Close();
 		}
 		catch (FileNotFoundException^)

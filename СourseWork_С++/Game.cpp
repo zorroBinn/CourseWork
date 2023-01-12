@@ -554,10 +554,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 			if (worker->GetMoneybalance() >= 50000) {
 				worker->GetRealty()->SetHousing("Êâàðòèðà");
 				worker->ChangeMoney(-50000);
-				this->comboBoxrealtyhouse->Items->Clear();
-				this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
-					L"Êîòòåäæ (120 000$)", L"Âèëëà (350 000$)"
-				});
+				RealtyInitialization();
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
 				MoneyBalanceUpdating();
 				DayUpdating();
@@ -570,10 +567,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 			if (worker->GetMoneybalance() >= 120000) {
 				worker->GetRealty()->SetHousing("Êîòòåäæ");
 				worker->ChangeMoney(-120000);
-				this->comboBoxrealtyhouse->Items->Clear();
-				this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
-					L"Êâàðòèðà (50 000$)", L"Âèëëà (350 000$)"
-				});
+				RealtyInitialization();
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
 				MoneyBalanceUpdating();
 				DayUpdating();
@@ -586,10 +580,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 			if (worker->GetMoneybalance() >= 350000) {
 				worker->GetRealty()->SetHousing("Âèëëà");
 				worker->ChangeMoney(-350000);
-				this->comboBoxrealtyhouse->Items->Clear();
-				this->comboBoxrealtyhouse->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
-					L"Êâàðòèðà (50 000$)", L"Êîòòåäæ (120 000$)"
-				});
+				RealtyInitialization();
 				this->realtyhouse->Text = worker->GetRealty()->GetHousing();
 				MoneyBalanceUpdating();
 				DayUpdating();
@@ -604,10 +595,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 			if (worker->GetMoneybalance() >= 3500) {
 				worker->GetRealty()->SetVehicle("Ìîòîöèêë");
 				worker->ChangeMoney(-3500);
-				this->comboBoxrealtycar->Items->Clear();
-				this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
-					L"Àâòîìîáèëü (10 000$)", L"Ñïîðòêàð (150 000$)"
-				});
+				RealtyInitialization();
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
 				MoneyBalanceUpdating();
 				DayUpdating();
@@ -620,10 +608,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 			if (worker->GetMoneybalance() >= 10000) {
 				worker->GetRealty()->SetVehicle("Àâòîìîáèëü");
 				worker->ChangeMoney(-10000);
-				this->comboBoxrealtycar->Items->Clear();
-				this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
-					L"Ìîòîöèêë (3 500$)", L"Ñïîðòêàð (150 000$)"
-				});
+				RealtyInitialization();
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
 				MoneyBalanceUpdating();
 				DayUpdating();
@@ -636,10 +621,7 @@ System::Void ÑourseWorkÑ::Game::buybutton_Click(System::Object^ sender, System::
 			if (worker->GetMoneybalance() >= 150000) {
 				worker->GetRealty()->SetVehicle("Ñïîðòêàð");
 				worker->ChangeMoney(-150000);
-				this->comboBoxrealtycar->Items->Clear();
-				this->comboBoxrealtycar->Items->AddRange(gcnew cli::array< System::Object^  >(2) {
-					L"Ìîòîöèêë (3 500$)", L"Àâòîìîáèëü (10 000$)"
-				});
+				RealtyInitialization();
 				this->realtycar->Text = worker->GetRealty()->GetVehicle();
 				MoneyBalanceUpdating();
 				DayUpdating();
