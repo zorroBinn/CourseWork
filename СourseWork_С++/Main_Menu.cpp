@@ -1,6 +1,7 @@
 #include "Main_Menu.h"
 #include "Game.h"
 
+//Метод определения текста кнопки "Играть" в зависимости от наличия файла сохранения
 System::Void СourseWorkС::Main_Menu::TextStartButtonSet()
 {
     try
@@ -21,16 +22,19 @@ System::Void СourseWorkС::Main_Menu::TextStartButtonSet()
     }
 }
 
+//Закрытие формы, завершение работы приложения по нажатию кнопки
 System::Void СourseWorkС::Main_Menu::ExitButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
     this->Close();
 }
 
+//Отображение краткой справки об игре по нажатию кнопки
 System::Void СourseWorkС::Main_Menu::AboutGameButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
     MessageBox::Show("Добро пожаловать в игру <<Life simulator>>(Симулятор жизни)!\nЗдесь вам предстоит пройти путь от безработного до мультимиллиардера!\nПокупка одежды, недвижимости и машин.\nВсегда следите за своим здоровьем и другими показателями!\nУдачи!", "Об игре", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
 
+//Удаление сохранения (при его наличии) по нажатию кнопки
 System::Void СourseWorkС::Main_Menu::SaveDeleteButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if (File::Exists("save.save") == true) {
@@ -53,6 +57,7 @@ System::Void СourseWorkС::Main_Menu::SaveDeleteButton_Click(System::Object^ send
     }
 }
 
+//Запуск формы игры или создания персонажа по нажатию кнопки
 System::Void СourseWorkС::Main_Menu::GameStartButton_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if (this->GameStartButton->Text == "Начать игру") {
@@ -71,6 +76,7 @@ System::Void СourseWorkС::Main_Menu::GameStartButton_Click(System::Object^ sende
     }
 }
 
+//Действие при отображении формы
 System::Void СourseWorkС::Main_Menu::Main_Menu_Resize(System::Object^ sender, System::EventArgs^ e)
 {
     if (File::Exists("save.save") == true) {

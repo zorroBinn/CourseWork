@@ -13,7 +13,7 @@ namespace СourseWorkС {
 	/// <summary>
 	/// Сводка для NewCharacter
 	/// </summary>
-	public ref class NewCharacter : public System::Windows::Forms::Form
+	public ref class NewCharacter : public System::Windows::Forms::Form //Форма создания персонажа
 	{
 	public:
 		NewCharacter(void)
@@ -284,10 +284,10 @@ namespace СourseWorkС {
 
 		}
 #pragma endregion
-private: System::Void checkBoxman_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void checkBoxwoman_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void createbutton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void NewCharacter_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
-private: System::Void textBoxname_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+private: System::Void checkBoxman_CheckedChanged(System::Object^ sender, System::EventArgs^ e); //Выбор пола (М) по флажку
+private: System::Void checkBoxwoman_CheckedChanged(System::Object^ sender, System::EventArgs^ e); //Выбор пола (Ж) по флажку
+private: System::Void createbutton_Click(System::Object^ sender, System::EventArgs^ e); //Формирование файла сохранения по кнопке
+private: System::Void NewCharacter_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e); //Возврат в форму главного меню при закрытии данной формы
+private: System::Void textBoxname_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e); //Защита на ввод в текстовом поле имени персонажа
 };
 }

@@ -1,5 +1,6 @@
 #include "Game.h"
 
+//Считывание данных из файла сохранения, заполнение полей формы (при запуске формы)
 System::Void СourseWorkС::Game::DataInitialization()
 {
 	if (File::Exists("save.save") == true) {
@@ -106,7 +107,7 @@ System::Void СourseWorkС::Game::DataInitialization()
 		}
 	}
 }
-
+//Возможность покупки нового имущества в зависимости от текущего
 System::Void СourseWorkС::Game::RealtyInitialization()
 {
 	if (worker->GetRealty()->GetHousing() == "Квартира") {
@@ -147,6 +148,7 @@ System::Void СourseWorkС::Game::RealtyInitialization()
 	}
 }
 
+//Обновление дня, подарок в случае дня рождения
 System::Void СourseWorkС::Game::DayUpdating()
 {
 	this->Day++;
@@ -174,24 +176,28 @@ System::Void СourseWorkС::Game::DayUpdating()
 	}
 }
 
+//Обновлнеие полей формы, отображающих игровой баланс
 System::Void СourseWorkС::Game::MoneyBalanceUpdating()
 {
 	this->infomoneybalance->Text = Convert::ToString(worker->GetMoneybalance());
 	this->humanbalance->Text = Convert::ToString(worker->GetMoneybalance());
 }
 
+//Обновление полей формы, отображающих статус сытости
 System::Void СourseWorkС::Game::SatietyUpdating()
 {
 	this->infosatietypercent->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
 	this->satiety->Text = Convert::ToString(worker->GetFood()->GetSatietyStatus());
 }
 
+//Обновление полей формы, отображающих статус здоровья
 System::Void СourseWorkС::Game::HealthUpdating()
 {
 	this->infohealthpercent->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
 	this->health->Text = Convert::ToString(worker->GetMedCard()->GetHealthStatus());
 }
 
+//Повышение уровня персонажа (определение нового рабочего места и оплаты)
 System::Void СourseWorkС::Game::LevelUp()
 {
 	if (worker->GetMoneybalance() > 1000000 && worker->GetLevel() < 7) {
@@ -238,6 +244,7 @@ System::Void СourseWorkС::Game::LevelUp()
 	}
 }
 
+//Полвышение уровня работника, обновление полей работы
 System::Void СourseWorkС::Game::UpdatingLevelUp()
 {
 	worker->LevelUp();
@@ -245,6 +252,7 @@ System::Void СourseWorkС::Game::UpdatingLevelUp()
 	this->payment->Text = Convert::ToString(worker->GetPayment());
 }
 
+//Сохранение игры
 System::Void СourseWorkС::Game::GameSave()
 {
 	try
@@ -294,6 +302,7 @@ System::Void СourseWorkС::Game::GameSave()
 	}
 }
 
+//Проверка условий проигрыша
 System::Boolean СourseWorkС::Game::GameLoss()
 {
 	bool lossrate = false;
@@ -333,6 +342,7 @@ System::Boolean СourseWorkС::Game::GameLoss()
 	}
 }
 
+//Отображение информации о персонаже по кнопке
 System::Void СourseWorkС::Game::персонажToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->groupBoxworker->Visible = false;
@@ -343,6 +353,7 @@ System::Void СourseWorkС::Game::персонажToolStripMenuItem_Click(System::Object^ 
 	this->groupBoxhuman->Visible = true;
 }
 
+//Отображение информации о медицинской карте по кнопке
 System::Void СourseWorkС::Game::здоровьеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->groupBoxhuman->Visible = false;
@@ -353,6 +364,7 @@ System::Void СourseWorkС::Game::здоровьеToolStripMenuItem_Click(System::Object^ 
 	this->groupBoxmd->Visible = true;
 }
 
+//Отображение информации об имуществе по кнопке
 System::Void СourseWorkС::Game::имуществоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->groupBoxhuman->Visible = false;
@@ -363,6 +375,7 @@ System::Void СourseWorkС::Game::имуществоToolStripMenuItem_Click(System::Object^
 	this->groupBoxrealty->Visible = true;
 }
 
+//Отображение информации о работе по кнопке
 System::Void СourseWorkС::Game::работаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->groupBoxhuman->Visible = false;
@@ -373,6 +386,7 @@ System::Void СourseWorkС::Game::работаToolStripMenuItem_Click(System::Object^ se
 	this->groupBoxworker->Visible = true;
 }
 
+//Отображение информации об одежде по кнопке
 System::Void СourseWorkС::Game::одеждаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->groupBoxhuman->Visible = false;
@@ -383,6 +397,7 @@ System::Void СourseWorkС::Game::одеждаToolStripMenuItem_Click(System::Object^ se
 	this->groupBoxclothes->Visible = true;
 }
 
+//Отображение информации о питании по кнопке
 System::Void СourseWorkС::Game::едаtoolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	this->groupBoxfood->Visible = true;
@@ -393,6 +408,7 @@ System::Void СourseWorkС::Game::едаtoolStripMenuItem_Click(System::Object^ sende
 	this->groupBoxclothes->Visible = false;
 }
 
+//Выбор предложения недвижимости по флажку
 System::Void СourseWorkС::Game::checkBoxhouse_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
 {
 	if (this->checkBoxhouse->Checked == true) {
@@ -410,6 +426,7 @@ System::Void СourseWorkС::Game::checkBoxhouse_CheckedChanged(System::Object^ sen
 	}
 }
 
+//Выбор предложения по транспортному средству по флажку
 System::Void СourseWorkС::Game::checkBoxcar_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
 {
 	if (this->checkBoxcar->Checked == true) {
@@ -427,6 +444,7 @@ System::Void СourseWorkС::Game::checkBoxcar_CheckedChanged(System::Object^ sende
 	}
 }
 
+//Действие при выходе из формы, возврат в форму главного меню
 System::Void СourseWorkС::Game::Game_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
 {
 	System::Windows::Forms::DialogResult result = MessageBox::Show("Вы уврены, что хотите выйти?", "Внимание!", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
@@ -443,6 +461,7 @@ System::Void СourseWorkС::Game::Game_FormClosing(System::Object^ sender, System:
 	}
 }
 
+//Покупка костюма по кнопке
 System::Void СourseWorkС::Game::buysuitbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMoneybalance() >= 5000) {
@@ -461,6 +480,7 @@ System::Void СourseWorkС::Game::buysuitbutton_Click(System::Object^ sender, Syst
 	}
 }
 
+//Починка одежды по кнопке
 System::Void СourseWorkС::Game::buttonsewup_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if ((worker->GetMoneybalance() >= 5 && worker->GetClothes()->GetPants() != "Брюки") || (worker->GetMoneybalance() >= 10 && worker->GetClothes()->GetPants() == "Брюки")) {
@@ -485,6 +505,7 @@ System::Void СourseWorkС::Game::buttonsewup_Click(System::Object^ sender, System
 	}
 }
 
+//Действие "Работать" по кнопке
 System::Void СourseWorkС::Game::workingbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (GameLoss() == false) {
@@ -528,6 +549,7 @@ System::Void СourseWorkС::Game::workingbutton_Click(System::Object^ sender, Syst
 	}
 }
 
+//Лечение по кнопке
 System::Void СourseWorkС::Game::healthbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMoneybalance() >= 10) {
@@ -547,6 +569,7 @@ System::Void СourseWorkС::Game::healthbutton_Click(System::Object^ sender, Syste
 	}
 }
 
+//Покупка выбранного имущества по кнопке
 System::Void СourseWorkС::Game::buybutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (this->checkBoxhouse->Checked == true) {
@@ -634,6 +657,7 @@ System::Void СourseWorkС::Game::buybutton_Click(System::Object^ sender, System::
 	GameLoss();
 }
 
+//Отображение меню бустеров по кнопке
 System::Void СourseWorkС::Game::boostersbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (this->groupBoxboosters->Visible == false) {
@@ -644,6 +668,7 @@ System::Void СourseWorkС::Game::boostersbutton_Click(System::Object^ sender, Sys
 	}
 }
 
+//Первый вариант питания по кнопке (фастфуд)
 System::Void СourseWorkС::Game::onefoodbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMoneybalance() >= 5) {
@@ -663,6 +688,7 @@ System::Void СourseWorkС::Game::onefoodbutton_Click(System::Object^ sender, Syst
 	}
 }
 
+//Второй вариант питания по кнопке (кафе)
 System::Void СourseWorkС::Game::twofoodbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMoneybalance() >= 20) {
@@ -682,6 +708,7 @@ System::Void СourseWorkС::Game::twofoodbutton_Click(System::Object^ sender, Syst
 	}
 }
 
+//Третий вариант питания по кнопке (ресторан)
 System::Void СourseWorkС::Game::threebutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMoneybalance() >= 100) {
@@ -701,6 +728,7 @@ System::Void СourseWorkС::Game::threebutton_Click(System::Object^ sender, System
 	}
 }
 
+//Активания бустера "автопитание" по кнопке
 System::Void СourseWorkС::Game::autoeatbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetFood()->GetAutoEating() == false) {
@@ -721,6 +749,7 @@ System::Void СourseWorkС::Game::autoeatbutton_Click(System::Object^ sender, Syst
 	}
 }
 
+//Активация бустера "автопочинка одежды" по кнопке
 System::Void СourseWorkС::Game::autosewupbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetClothes()->GetAutoSewUp() == false) {
@@ -741,6 +770,7 @@ System::Void СourseWorkС::Game::autosewupbutton_Click(System::Object^ sender, Sy
 	}
 }
 
+//Активация бустера "автолечение" по кнопке
 System::Void СourseWorkС::Game::autohealthbutton_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	if (worker->GetMedCard()->GetInfinityHealth() == false) {
@@ -761,6 +791,7 @@ System::Void СourseWorkС::Game::autohealthbutton_Click(System::Object^ sender, S
 	}
 }
 
+//Определение(создание) новой всплывающей подсказки
 System::Void СourseWorkС::Game::ToolTipShow(System::Windows::Forms::Button^ buttonname, String^ text)
 {
 	ToolTip^ t = gcnew ToolTip();
@@ -768,31 +799,37 @@ System::Void СourseWorkС::Game::ToolTipShow(System::Windows::Forms::Button^ butt
 	t->AutomaticDelay = 120;
 }
 
+//Всплывающая подсказка на первый вариант питания
 System::Void СourseWorkС::Game::onefoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e)
 {
 	ToolTipShow(onefoodbutton, "+20%");
 }
 
+//Всплывающая подсказка на второй вариант питания
 System::Void СourseWorkС::Game::twofoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e)
 {
 	ToolTipShow(twofoodbutton, "+40%");
 }
 
+//Всплывающая подсказка на третий вариант питания
 System::Void СourseWorkС::Game::threebutton_MouseHover(System::Object^ sender, System::EventArgs^ e)
 {
 	ToolTipShow(threebutton, "+100%");
 }
 
+//Всплывающая подсказка на лечение
 System::Void СourseWorkС::Game::healthbutton_MouseHover(System::Object^ sender, System::EventArgs^ e)
 {
 	ToolTipShow(healthbutton, "+35%");
 }
 
+//Всплывающая подсказка на починку одежды
 System::Void СourseWorkС::Game::buttonsewup_MouseHover(System::Object^ sender, System::EventArgs^ e)
 {
 	ToolTipShow(buttonsewup, "+20%");
 }
 
+//Всплывающая подсказка на покупку костюма
 System::Void СourseWorkС::Game::buysuitbutton_MouseHover(System::Object^ sender, System::EventArgs^ e)
 {
 	ToolTipShow(buysuitbutton, "Костюм меньше изнашивается");

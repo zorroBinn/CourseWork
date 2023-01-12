@@ -14,10 +14,10 @@ namespace СourseWorkС {
 	/// <summary>
 	/// Сводка для Game
 	/// </summary>
-	public ref class Game : public System::Windows::Forms::Form
+	public ref class Game : public System::Windows::Forms::Form //Форма непосредственно игры
 	{
-		Worker^ worker;
-		Int32 Day;
+		Worker^ worker; //Персонаж (работник)
+		Int32 Day; //Игровой день
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ parametr;
 	private: System::Windows::Forms::PictureBox^ picturebox;
 	private: System::Windows::Forms::Label^ imtcomment;
@@ -1571,43 +1571,43 @@ namespace СourseWorkС {
 
 		}
 #pragma endregion
-	private: System::Void DataInitialization();
-	private: System::Void RealtyInitialization();
-	private: System::Void DayUpdating();
-	private: System::Void MoneyBalanceUpdating();
-	private: System::Void SatietyUpdating();
-	private: System::Void HealthUpdating();
-	private: System::Void LevelUp();
-	private: System::Void UpdatingLevelUp();
-	private: System::Void GameSave();
-	private: System::Boolean GameLoss();
-	private: System::Void персонажToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void здоровьеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void имуществоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void работаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void одеждаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void едаtoolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void checkBoxhouse_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void checkBoxcar_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Game_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
-	private: System::Void buysuitbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void buttonsewup_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void workingbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void healthbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void buybutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void boostersbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void onefoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void twofoodbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void threebutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void autoeatbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void autosewupbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void autohealthbutton_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void ToolTipShow(System::Windows::Forms::Button^ buttonname, String^ text);
-	private: System::Void onefoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void twofoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void threebutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void healthbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void buttonsewup_MouseHover(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void buysuitbutton_MouseHover(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void DataInitialization(); //Считывание данных из файла сохранения, заполнение полей формы (при запуске формы)
+	private: System::Void RealtyInitialization(); //Возможность покупки нового имущества в зависимости от текущего
+	private: System::Void DayUpdating(); //Обновление дня, подарок в случае дня рождения
+	private: System::Void MoneyBalanceUpdating(); //Обновлнеие полей формы, отображающих игровой баланс
+	private: System::Void SatietyUpdating(); //Обновление полей формы, отображающих статус сытости
+	private: System::Void HealthUpdating(); //Обновление полей формы, отображающих статус здоровья
+	private: System::Void LevelUp(); //Повышение уровня персонажа (определение нового рабочего места и оплаты)
+	private: System::Void UpdatingLevelUp(); //Полвышение уровня работника, обновление полей работы
+	private: System::Void GameSave(); //Сохранение игры
+	private: System::Boolean GameLoss(); //Проверка условий проигрыша
+	private: System::Void персонажToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e); //Отображение информации о персонаже по кнопке
+	private: System::Void здоровьеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e); //Отображение информации о медицинской карте по кнопке
+	private: System::Void имуществоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e); //Отображение информации об имуществе по кнопке
+	private: System::Void работаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e); //Отображение информации о работе по кнопке
+	private: System::Void одеждаToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e); //Отображение информации об одежде по кнопке
+	private: System::Void едаtoolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e); //Отображение информации о питании по кнопке
+	private: System::Void checkBoxhouse_CheckedChanged(System::Object^ sender, System::EventArgs^ e); //Выбор предложения недвижимости по флажку
+	private: System::Void checkBoxcar_CheckedChanged(System::Object^ sender, System::EventArgs^ e); //Выбор предложения по транспортному средству по флажку
+	private: System::Void Game_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e); //Действие при выходе из формы, возврат в форму главного меню
+	private: System::Void buysuitbutton_Click(System::Object^ sender, System::EventArgs^ e); //Покупка костюма по кнопке
+	private: System::Void buttonsewup_Click(System::Object^ sender, System::EventArgs^ e); //Починка одежды по кнопке
+	private: System::Void workingbutton_Click(System::Object^ sender, System::EventArgs^ e); //Действие "Работать" по кнопке
+	private: System::Void healthbutton_Click(System::Object^ sender, System::EventArgs^ e); //Лечение по кнопке
+	private: System::Void buybutton_Click(System::Object^ sender, System::EventArgs^ e); //Покупка выбранного имущества по кнопке
+	private: System::Void boostersbutton_Click(System::Object^ sender, System::EventArgs^ e); //Отображение меню бустеров по кнопке
+	private: System::Void onefoodbutton_Click(System::Object^ sender, System::EventArgs^ e); //Первый вариант питания по кнопке (фастфуд)
+	private: System::Void twofoodbutton_Click(System::Object^ sender, System::EventArgs^ e); //Второй вариант питания по кнопке (кафе)
+	private: System::Void threebutton_Click(System::Object^ sender, System::EventArgs^ e); //Третий вариант питания по кнопке (ресторан)
+	private: System::Void autoeatbutton_Click(System::Object^ sender, System::EventArgs^ e); //Активания бустера "автопитание" по кнопке
+	private: System::Void autosewupbutton_Click(System::Object^ sender, System::EventArgs^ e); //Активация бустера "автопочинка одежды" по кнопке
+	private: System::Void autohealthbutton_Click(System::Object^ sender, System::EventArgs^ e); //Активация бустера "автолечение" по кнопке
+	private: System::Void ToolTipShow(System::Windows::Forms::Button^ buttonname, String^ text); //Определение(создание) новой всплывающей подсказки
+	private: System::Void onefoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e); //Всплывающая подсказка на первый вариант питания
+	private: System::Void twofoodbutton_MouseHover(System::Object^ sender, System::EventArgs^ e); //Всплывающая подсказка на второй вариант питания
+	private: System::Void threebutton_MouseHover(System::Object^ sender, System::EventArgs^ e); //Всплывающая подсказка на третий вариант питания
+	private: System::Void healthbutton_MouseHover(System::Object^ sender, System::EventArgs^ e); //Всплывающая подсказка на лечение
+	private: System::Void buttonsewup_MouseHover(System::Object^ sender, System::EventArgs^ e); //Всплывающая подсказка на починку одежды
+	private: System::Void buysuitbutton_MouseHover(System::Object^ sender, System::EventArgs^ e); //Всплывающая подсказка на покупку костюма
 };
 }

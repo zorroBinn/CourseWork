@@ -15,7 +15,7 @@ namespace СourseWorkС {
 	/// <summary>
 	/// Сводка для Main_Menu
 	/// </summary>
-	public ref class Main_Menu : public System::Windows::Forms::Form
+	public ref class Main_Menu : public System::Windows::Forms::Form //Форма главного меню (начальная форма)
 	{
 	public:
 		Main_Menu(void)
@@ -152,11 +152,11 @@ namespace СourseWorkС {
 
 		}
 #pragma endregion
-private: System::Void TextStartButtonSet();
-private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void AboutGameButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void SaveDeleteButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void GameStartButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Main_Menu_Resize(System::Object^ sender, System::EventArgs^ e);
+private: System::Void TextStartButtonSet(); //Метод определения текста кнопки "Играть" в зависимости от наличия файла сохранения
+private: System::Void ExitButton_Click(System::Object^ sender, System::EventArgs^ e); //Закрытие формы, завершение работы приложения по нажатию кнопки
+private: System::Void AboutGameButton_Click(System::Object^ sender, System::EventArgs^ e); //Отображение краткой справки об игре по нажатию кнопки
+private: System::Void SaveDeleteButton_Click(System::Object^ sender, System::EventArgs^ e); //Удаление сохранения (при его наличии) по нажатию кнопки
+private: System::Void GameStartButton_Click(System::Object^ sender, System::EventArgs^ e); //Запуск формы игры или создания персонажа по нажатию кнопки
+private: System::Void Main_Menu_Resize(System::Object^ sender, System::EventArgs^ e); //Действие при отображении формы
 };
 }

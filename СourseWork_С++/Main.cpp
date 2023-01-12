@@ -5,7 +5,7 @@ using namespace СourseWorkС;
 
 
 [STAThread]
-
+//Главная функция проекта, точка запуска
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
