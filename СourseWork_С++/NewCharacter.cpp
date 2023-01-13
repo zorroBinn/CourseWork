@@ -67,7 +67,7 @@ System::Void ÑourseWorkÑ::NewCharacter::createbutton_Click(System::Object^ sende
 }
 
 //Âîçâðàò â ôîðìó ãëàâíîãî ìåíþ ïðè çàêðûòèè äàííîé ôîðìû
-System::Void ÑourseWorkÑ::NewCharacter::NewCharacter_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
+System::Void ÑourseWorkÑ::NewCharacter::NewCharacter_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
 {
 	this->Owner->WindowState = FormWindowState::Normal;
 	this->Owner->ShowInTaskbar = true;

@@ -276,7 +276,7 @@ namespace СourseWorkС {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Создание нового персонажа";
 			this->TopMost = true;
-			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &NewCharacter::NewCharacter_FormClosed);
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &NewCharacter::NewCharacter_FormClosing);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownweight))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDownheight))->EndInit();
 			this->ResumeLayout(false);
@@ -287,7 +287,7 @@ namespace СourseWorkС {
 private: System::Void checkBoxman_CheckedChanged(System::Object^ sender, System::EventArgs^ e); //Выбор пола (М) по флажку
 private: System::Void checkBoxwoman_CheckedChanged(System::Object^ sender, System::EventArgs^ e); //Выбор пола (Ж) по флажку
 private: System::Void createbutton_Click(System::Object^ sender, System::EventArgs^ e); //Формирование файла сохранения по кнопке
-private: System::Void NewCharacter_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e); //Возврат в форму главного меню при закрытии данной формы
+private: System::Void NewCharacter_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 private: System::Void textBoxname_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e); //Защита на ввод в текстовом поле имени персонажа
 };
 }
